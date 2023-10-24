@@ -23,6 +23,8 @@
 >  *  Languages: C++
 >  *  Tool: VS code
  > * What will be the input/output of your project?
+>  * Keyboard inputs
+>  * Mouse inputs
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
