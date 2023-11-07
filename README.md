@@ -58,48 +58,48 @@
   - `Load Game`: Loads a previously saved game session.
   - `Quit`: Exits the game.
 
-## Character Creation
+> ## Character Creation
 - **Commands:**
   - `Choose Class`: Enter a command to select a class like Rogue, Knight, Mage, etc.
   - `Allocate Stats`: Assign stat points to attributes like Strength, Agility, Intelligence, etc.
 
-## Class Selection
+> ## Class Selection
 - **Commands:**
   - `Select Class`: Choose your character's class from options such as [Rogue], [Knight], [Mage].
 
-## Stats Allocation
+> ## Stats Allocation
 - **Commands:**
   - `Increase Stat`: Add points to a specific stat, ex, `Strength: 5 [+][-]`.
   - `Decrease Stat`: Subtract points from a specific stat.
 
-## Gameplay
+> ## Gameplay
 - **Commands:**
   - `Inventory`: Opens the player's inventory to view items.
   - `Look Around`: Provides a description of the player's surroundings.
   - `Move`: Enter a direction to move your character, ex, `Move North`.
   - `Interact`: Engage with the environment or NPCs.
 
-## Inventory System
+> ## Inventory System
 - **Commands:**
   - `Use Item`: Utilize an item from the inventory, ex, `Health Potion [Use]`.
   - `Equip Item`: Equip an item to the character, ex, `Sword [Equip]`.
 
-## Store System
+> ## Store System
 - **Commands:**
   - `Buy Item`: Purchase an item from the store, ex, `Health Potion [Buy]`.
 
-## Turn-Based Fighting
+> ## Turn-Based Fighting
 - **Commands:**
   - `Attack`: Choose to attack the enemy.
   - `Defend`: Take a defensive stance to reduce damage.
   - `Use Item`: Use an item from your inventory during combat.
   - `Flee`: Attempt to escape from combat.
 
-## Gambling System
+> ## Gambling System
 - **Commands:**
   - `Bet`: Place a bet in a game of chance, ex, `Dice Roll [Bet]`.
 
-## Quit Confirmation
+> ## Quit Confirmation
 - **Commands:**
   - `Confirm Quit`: Verify if the player truly wants to quit, ex, `Are you sure you want to quit? [Yes], [No]`.
 
