@@ -37,6 +37,8 @@
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
  >   * Break down the "Epics" into smaller actionable user stories (i.e. smaller development tasks). Convert them into issues and assign them to team members. Place these in the `TODO` (aka Sprint Backlog) column.
  >   * These cards should represent roughly 7 days worth of development time for your team. Then, once the sprint is over you should be repeating these steps to plan a new sprint, taking you until your second scrum meeting with the reader in phase III.
+>    * ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/73aff2ec-fe4f-4a59-ba4d-fb5ba6fb4979)
+
  > * Schedule two check-ins using Calendly. You need to pick both time slots on Tuesday of week 6. The check-ins will occur on Zoom. Your entire team must be present for both check-ins.
  >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
  >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
