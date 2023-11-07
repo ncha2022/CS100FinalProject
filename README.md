@@ -52,6 +52,57 @@
 
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+> ## Main Menu
+- **Commands:**
+  - `New Game`: Starts a new game session.
+  - `Load Game`: Loads a previously saved game session.
+  - `Quit`: Exits the game.
+
+## Character Creation
+- **Commands:**
+  - `Choose Class`: Enter a command to select a class like Rogue, Knight, Mage, etc.
+  - `Allocate Stats`: Assign stat points to attributes like Strength, Agility, Intelligence, etc.
+
+## Class Selection
+- **Commands:**
+  - `Select Class`: Choose your character's class from options such as [Rogue], [Knight], [Mage].
+
+## Stats Allocation
+- **Commands:**
+  - `Increase Stat`: Add points to a specific stat, ex, `Strength: 5 [+][-]`.
+  - `Decrease Stat`: Subtract points from a specific stat.
+
+## Gameplay
+- **Commands:**
+  - `Inventory`: Opens the player's inventory to view items.
+  - `Look Around`: Provides a description of the player's surroundings.
+  - `Move`: Enter a direction to move your character, ex, `Move North`.
+  - `Interact`: Engage with the environment or NPCs.
+
+## Inventory System
+- **Commands:**
+  - `Use Item`: Utilize an item from the inventory, ex, `Health Potion [Use]`.
+  - `Equip Item`: Equip an item to the character, ex, `Sword [Equip]`.
+
+## Store System
+- **Commands:**
+  - `Buy Item`: Purchase an item from the store, ex, `Health Potion [Buy]`.
+
+## Turn-Based Fighting
+- **Commands:**
+  - `Attack`: Choose to attack the enemy.
+  - `Defend`: Take a defensive stance to reduce damage.
+  - `Use Item`: Use an item from your inventory during combat.
+  - `Flee`: Attempt to escape from combat.
+
+## Gambling System
+- **Commands:**
+  - `Bet`: Place a bet in a game of chance, ex, `Dice Roll [Bet]`.
+
+## Quit Confirmation
+- **Commands:**
+  - `Confirm Quit`: Verify if the player truly wants to quit, ex, `Are you sure you want to quit? [Yes], [No]`.
+
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
