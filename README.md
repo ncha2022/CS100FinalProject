@@ -109,6 +109,7 @@
  > ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/1c133fb9-161a-4c14-ada4-55686e68068a)
 
  The SOLID principle that was applied was the Open-Closed Principle(OCP). This was applied by making the chooseStats and chooseClass classes into functions for the Character class. This helps make the code more manageable and organized so its easier to write and keep track of while doing changes.
+ Another SOLID principle that was applied was the Single-Responsibiity Principle(SRP). This was applied by making the Inventory and Store as separate classes rather than being functions within the gameplay class as it would overwelm how much is in the gameplay class. This makes the code more manageable and easier to break into workable parts.
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
  
