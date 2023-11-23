@@ -17,7 +17,7 @@ class Store
         string storeContents[] ; 
 
         // display everything in store in a table like format
-        void updateStoreContents() ; 
+        //void updateStoreContents() ; 
 
         // display items in store in a table? format; shows quantity, description, name, etc.
         void displayStoreContents() ; 
@@ -27,6 +27,15 @@ class Store
 
         // display description for each user requested item 
         void displayItemDescription( string userItem ) ; 
+
+        // purchase item (removes one from store array)
+        void purchaseItem( string userItem ) ; 
+
+        // store menu that allows players to choose actions within store
+        void storeMenu() ; 
+
+        // store menu input? 
+        void storeMenuSelect( int userMenuSelection ) ; 
  
 }
 
