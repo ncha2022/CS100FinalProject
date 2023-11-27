@@ -1,25 +1,27 @@
 #ifndef STORE_HPP
 #define STORE_HPP
+#include <vector>
+#include <string>
 
 class Store
 {
     private:
     
+        // vector holding items and their info in the store
+        vector <string> storeVector ; 
+
         // description for item
         string itemDescription ; 
         
         // name of item
         string itemName ;
 
+
     public:
 
-        // array holding items and their info in the store
-        string storeContents[] ; 
-
-        // display everything in store in a table like format
         //void updateStoreContents() ; 
 
-        // display items in store in a table? format; shows quantity, description, name, etc.
+        // display items in store in a table format; shows quantity, description, name, etc. couts
         void displayStoreContents() ; 
 
         // display quantity of user requested item; not sure if should count directly or display quantity 
@@ -34,8 +36,11 @@ class Store
         // store menu that allows players to choose actions within store
         void storeMenu() ; 
 
+        // print menu
+        void printMenu() ; 
+
         // store menu input? 
-        void storeMenuSelect( int userMenuSelection ) ; 
+        // void storeMenuSelect( int userMenuSelection ) ; 
  
 }
 
