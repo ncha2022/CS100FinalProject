@@ -9,20 +9,17 @@ class Store
     
         // vector holding items and their info in the store
         vector <string> storeVector ; 
-
-        // description for item
-        string itemDescription ; 
         
-        // name of item
-        string itemName ;
-
-
     public:
 
-        //void updateStoreContents() ; 
+        // default contructor 
+        Store () ; 
 
-        // display items in store in a table format; shows quantity, description, name, etc. couts
+        // display items in store 
         void displayStoreContents() ; 
+
+        // display details of an item
+        void displayItemInfo( string userItem ) ; 
 
         // display quantity of user requested item; not sure if should count directly or display quantity 
         int displayItemQuantity( string userItem ) ;
@@ -38,9 +35,6 @@ class Store
 
         // print menu
         void printMenu() ; 
-
-        // store menu input? 
-        // void storeMenuSelect( int userMenuSelection ) ; 
  
 }
 
