@@ -1,24 +1,47 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
 class Character {
     private:
-        string class;
-        string strength;
-        string dexterity;
-        string constitution;
-        string intelligence;
-        string wisdom;
-        string charisma;
+        string currClass;
         string weapon;
         string armor;
-        string money;
+        int money;
+        int lvl;
+        int exp;
+        int maxHealth;
+        int currentHealth;
     public:
-        Character();
+        //Constructor and Deconstructor
+        Character();    //For new game
+        Character(string currClass, string weapon, string armor, int money, int lvl, int exp, int maxHealth, int currentHealth);    //For old game
         ~Character();
 
-        void chooseClass();
-        void chooseStats();
+        //Setter functions
+        void setClass();
+        void setWeapon();
+        void setArmor();
+        void setMoney();
+        void setLvl();
+        void setExp();
+        void setMaxHealth();
+        void setCurrentHealth(); 
+
+        //Getter functions
+        string getClass();
+        string getWeapon();
+        string getArmor();
+        int getMoney();
+        int getLvl();
+        int getExp();
+        int getMaxHealth();
+        int getCurrentHealth();
+
 };
 
 #endif // CHARACTER_HPP
