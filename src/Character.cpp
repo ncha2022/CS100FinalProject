@@ -14,10 +14,12 @@ Character::Character() {
     exp = 0;
     maxHealth = 100;
     currentHealth = maxHealth;
+    baseDamage = 20;
+    totalDamage = baseDamage;
 }
 
 // Constructor for old game
-Character::Character(string cClass, string wpn, string armr, int mny, int lv, int xp, int maxHP, int currHP) {
+Character::Character(string newClass, string newWeapon, string newArmor, int mny, int newLvl, int newExp, int maxHP, int currHP, int newBaseDamaage, int newTotalDamage) {
     currClass = cClass;
     weapon = wpn;
     armor = armr;
@@ -26,6 +28,8 @@ Character::Character(string cClass, string wpn, string armr, int mny, int lv, in
     exp = xp;
     maxHealth = maxHP;
     currentHealth = currHP;
+    baseDamage = newBaseDamaage;
+    totalDamage = newTotalDamage;
 }
 
 // Destructor
@@ -66,6 +70,15 @@ void Character::setCurrentHealth(int currHP) {
     currentHealth = currHP;
 }
 
+void Character::setBaseDamage(int newBaseDamage){
+    baseDamagedamage = newBaseDamage;
+}
+
+void Character::setTotalDamage(int newTotalDamage){
+    totalDamage = newTotalDamage;
+}
+
+
 // Getter functions implementation
 string Character::getClass() {
     return currClass;
@@ -97,4 +110,12 @@ int Character::getMaxHealth() {
 
 int Character::getCurrentHealth() {
     return currentHealth;
+}
+
+int Character::getBaseDamage(){
+    return baseDamage;
+}
+
+int Character::getTotalDamage(){
+    return totalDamage;
 }

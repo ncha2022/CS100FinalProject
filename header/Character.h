@@ -16,6 +16,8 @@ class Character {
         int exp;
         int maxHealth;
         int currentHealth;
+        int baseDamage;
+        int totalDamage;
     public:
         //Constructor and Deconstructor
         Character();    //For new game
@@ -31,6 +33,8 @@ class Character {
         void setExp(int);
         void setMaxHealth(int);
         void setCurrentHealth(int); 
+        void setBaseDamage(int);
+        void setTotalDamage(int);
 
         //Getter functions
         string getClass();
@@ -41,6 +45,8 @@ class Character {
         int getExp();
         int getMaxHealth();
         int getCurrentHealth();
+        int getBaseDamage();
+        int getTotalDamage();
 
 };
 
