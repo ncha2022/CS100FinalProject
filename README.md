@@ -48,7 +48,7 @@
  > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-> ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/30689a9d-69bc-4df8-a90c-16ac9029d3d4)
+> ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/edc2e688-79d1-45c7-95b9-74af3888b673)
 > This navigation diagram shows how each screen is interlinked and how they transfer between themselves.
 
 ### Screen Layouts
@@ -106,8 +106,12 @@
 
 
 ## Class Diagram
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
- 
+ > ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/1c133fb9-161a-4c14-ada4-55686e68068a)
+>
+> The program starts out in the Main Menu where the player can have the option to load a new game, load a previously saved game, or quit the game/program altogether. The diagram also includes the Gameplay class, which includes direction and CurrCharacter and functions inventory, lookAround, move, and interact. These functions allow the player to control their chracter's movements during the gameplay. The function Menu takes the player to main menu, and createNewCharacter creates a new character in the game. The Chracter class includes all of the character's stats and accessible items such as strength, dexterity, weapon, and money. The chracter's class can be chosen through the ChooseClass function, and their stats through the ChooseStats function, which includes all their stats. These features are only accessible through the Character class. In the inventory class, players can acsess their character's inventory and perform actions such as equipping an item, dropping an item, or just viewing their inventory through their respective functions. The charcter's inventory is sored throguh an array with each item being string. Through the Gambling class, the chracter's movements are determined through a dice roll. The random number produced by this chooses their path. In the Store class, the player can purchase things for their character through the store, which is an array storing the name of each item in string. Players can choose to display the contents of the store, and display the  quantity or description of an item they are interested in in the store through their respective functions. Through the private removeFromStore and addBackToStore functions the program is then abke to update the contents of the store if the player chooses to purchase or return an item. 
+
+ The SOLID principle that was applied was the Open-Closed Principle(OCP). This was applied by making the chooseStats and chooseClass classes into functions for the Character class. This helps make the code more manageable and organized so its easier to write and keep track of while doing changes. Separating the classes also helps separate any issues that may arise and can make solving such issues easier as there is less to work around. We can also test them individually by separating them. 
+ Another SOLID principle that was applied was the Single-Responsibiity Principle(SRP). This was applied by making the Inventory and Store as separate classes rather than being functions within the gameplay class as it would overwelm how much is in the gameplay class. This makes the code more manageable and easier to break into workable parts. Through this principle we can also ensure that one class has left of a negative effect on the otehrs if something wrong were to happen. It makes the debugging clear as we can pinpoint where exactly/what class this bug may appear in just be checking what this bug is effecting. 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
  
