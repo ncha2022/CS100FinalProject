@@ -23,14 +23,14 @@ class Character {
         ~Character();
 
         //Setter functions
-        void setClass();
-        void setWeapon();
-        void setArmor();
-        void setMoney();
-        void setLvl();
-        void setExp();
-        void setMaxHealth();
-        void setCurrentHealth(); 
+        void setClass(string);
+        void setWeapon(string);
+        void setArmor(string);
+        void setMoney(int);
+        void setLvl(int);
+        void setExp(int);
+        void setMaxHealth(int);
+        void setCurrentHealth(int); 
 
         //Getter functions
         string getClass();
