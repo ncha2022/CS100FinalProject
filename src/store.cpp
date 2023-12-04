@@ -1,4 +1,5 @@
 #include "../include/store.hpp"
+#include "../include/Inventory.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -123,9 +124,14 @@ void Store :: purchaseItem ( string userItem )
     else
     {
         (storeVector[userItemIndex])[2] = "2" ;  
-    }  
+    } 
 
-    // ****** ADD INTO USER INVENTORY HERE ******
+
+    // ADD TO INVENTORY
+    // CHANGE CHARCTER STATS
+    
+
+
     return ;
 }
 
@@ -210,8 +216,6 @@ void Store :: storeMenu ()
         printMenu() ;
         cin >> userChoice ;
     }
-    
-
 }
 
 void Store :: printMenu ()
