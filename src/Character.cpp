@@ -33,38 +33,38 @@ Character::~Character() {
 
 }
 
-// Setter functions implementation
-// void Character::setClass(string cClass) {
-//     currClass = cClass;
-// }
+//Setter functions implementation
+void Character::setClass(string newClass) {
+    currClass = newClass;
+}
 
-// void Character::setWeapon(string wpn) {
-//     weapon = wpn;
-// }
+void Character::setWeapon(string newWeapon) {
+    weapon = newWeapon;
+}
 
-// void Character::setArmor(string armr) {
-//     armor = armr;
-// }
+void Character::setArmor(string newArmor) {
+    armor = newArmor;
+}
 
-// void Character::setMoney(int mny) {
-//     money = mny;
-// }
+void Character::setMoney(int mny) {
+    money = mny;
+}
 
-// void Character::setLvl(int lv) {
-//     lvl = lv;
-// }
+void Character::setLvl(int newLvl) {
+    lvl = newLvl;
+}
 
-// void Character::setExp(int xp) {
-//     exp = xp;
-// }
+void Character::setExp(int newExp) {
+    exp = newExp;
+}
 
-// void Character::setMaxHealth(int maxHP) {
-//     maxHealth = maxHP;
-// }
+void Character::setMaxHealth(int maxHP) {
+    maxHealth = maxHP;
+}
 
-// void Character::setCurrentHealth(int currHP) {
-//     currentHealth = currHP;
-// }
+void Character::setCurrentHealth(int currHP) {
+    currentHealth = currHP;
+}
 
 // Getter functions implementation
 string Character::getClass() {
