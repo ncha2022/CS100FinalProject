@@ -1,4 +1,5 @@
 #include "inventory.h"
+#include "Character.h"
 
 using namespace std;
 
@@ -23,4 +24,22 @@ void Inventory::viewInventory() const {
     for (const auto& item : items) {
         cout << item.name << endl;
     }
+}
+
+void Inventory::equipWeapon(string newWeapon){
+    if(player.getWeapon == ""){
+        player.setWeapon(newWeapon);
+    }
+}
+
+void Inventory::unequipWeapon(){
+    
+}
+
+void Inventory::equipArmor(){
+    
+}
+
+void Inventory::unequipAeapon(){
+    
 }
