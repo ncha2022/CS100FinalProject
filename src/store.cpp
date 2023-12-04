@@ -1,5 +1,6 @@
 #include "../include/store.hpp"
 #include "../include/Inventory.h"
+#include "../header/Character.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,23 +12,22 @@ Store :: Store ()
     // i.e vector[0][0] -> first item's name
     // i.e vector [0][1] -> first item's description
 
-    // create vector for entire store
-    vector<string>storeVector ;
+    // creates vector for entire store
 
     // create separate vector for each item
     // 0 = name
     // 1 = description
     // 2 = quantity
-    vector<string>itemOne = { "Sword", "increases next attack by 5 points", "2" } ; 
+    vector<string>itemOne = { "Sword", "increases next attack by 5 points", "1" } ; 
     storeVector.push_back(itemOne) ; 
 
-    vector<string>itemTwo = { "Shield", "decreases next attack of enemy by 3 points", "2" } ; 
+    vector<string>itemTwo = { "Shield", "decreases next attack of enemy by 2 points", "2" } ; 
     storeVector.push_back(itemTwo) ; 
 
-    vector<string>itemThree = { "Apple Juice", "next attack from enemy does 50% less damage points", "1" } ; 
+    vector<string>itemThree = { "Apple Juice", "decreases next attack of enemy by 4 points", "1" } ; 
     storeVector.push_back(itemThree) ; 
 
-    vector <string>itemFour = { "Buttered Toast", "next attack does 20% more damage points", "3" } ; 
+    vector <string>itemFour = { "Buttered Toast", "next attack does 2 more damage points", "3" } ; 
     storeVector.push_back(itemFour) ; 
 
     vector <string>itemFive = { "Stick", "increases next attack by 1 point", "3" } ; 
@@ -36,10 +36,10 @@ Store :: Store ()
     vector <string>itemSix = { "Cool Jacket", "immune to enemy's next attack", "1" } ; 
     storeVector.push_back(itemSix) ; 
 
-    vector <string>itemSeven = { "Party Hat", "heal 4 hearts", "2" } ; 
+    vector <string>itemSeven = { "Party Hat", "heal 2 hearts", "2" } ; 
     storeVector.push_back(itemSeven) ; 
 
-    vector <string>itemEight = { "Corn on the Cob", "heal an extra 3 hearts a round for the next two rounds", "1" } ; 
+    vector <string>itemEight = { "Corn on the Cob", "heal 3 hearts", "1" } ; 
     storeVector.push_back(itemEight) ; 
 }
 
@@ -102,6 +102,7 @@ void Store :: purchaseItem ( string userItem )
     if ( (storeVector[userItemIndex])[2] == "0" )
     {
         throw item_out_of_stock( "Item out of stock; quantity = 0" ) ; 
+
     }
 
     // if ( (storeVector[userItemIndex])[2] == 1 )
