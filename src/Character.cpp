@@ -20,12 +20,12 @@ Character::Character() {
 
 // Constructor for old game
 Character::Character(string newClass, string newWeapon, string newArmor, int mny, int newLvl, int newExp, int maxHP, int currHP, int newBaseDamaage, int newTotalDamage) {
-    currClass = cClass;
-    weapon = wpn;
-    armor = armr;
+    currClass = newClass;
+    weapon = newWeapon;
+    armor = newArmor;
     money = mny;
-    lvl = lv;
-    exp = xp;
+    lvl = newLvl;
+    exp = newExp;
     maxHealth = maxHP;
     currentHealth = currHP;
     baseDamage = newBaseDamaage;
@@ -38,8 +38,45 @@ Character::~Character() {
 }
 
 //Setter functions implementation
-void Character::setClass(string newClass) {
-    currClass = newClass;
+void Character::setClass(string newClass, Character currPlayer) {
+    while(currClass == ""){
+        if(newClass == "Tank"){
+            currClass = newClass;
+            armor = "Chainmail Armor";
+            maxHealth = 150;
+            currentHealth = 150;
+            baseDamage = 10;
+            weapon = "Wooden Sword";
+            totalDamage = 20;
+        }else if(newClass == "Fighter"){
+            currClass = newClass;
+            armor = "Leather Armor";
+            maxHealth = 110;
+            currentHealth = 110;
+            baseDamage = 30;
+            weapon = "Stone Sword";
+            totalDamage = 60;
+        }else if(newClass == "Glass Cannon"){
+            currClass = newClass;
+            armor = "";
+            maxHealth = 50;
+            currentHealth = 50;
+            baseDamage = 80;
+            weapon = "Stone Sword";
+            totalDamage = 110;
+        }else if(newClass == "Gambler"){
+            currClass = newClass;
+            armor = "";
+            maxHealth = 40;
+            currentHealth = 40;
+            baseDamage = 10;
+            weapon = "";
+            totalDamage = 10;
+            money = 200;
+        }else{
+            cout << "Unvalid Class" << endl;
+        }
+    }
 }
 
 void Character::setWeapon(string newWeapon) {
@@ -71,7 +108,7 @@ void Character::setCurrentHealth(int currHP) {
 }
 
 void Character::setBaseDamage(int newBaseDamage){
-    baseDamagedamage = newBaseDamage;
+    baseDamage = newBaseDamage;
 }
 
 void Character::setTotalDamage(int newTotalDamage){
