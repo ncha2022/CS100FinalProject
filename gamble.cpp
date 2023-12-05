@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include "../header/Character.h"
 #ifdef _WIN32
 #include <Windows.h>
 #else
@@ -28,13 +29,25 @@ void gamble(Character player) {
     }
 
     if (input == 'y') { // gamble option
+        if(player.getMoney() < 1) {
+            cout << "You do not have the sufficient funds to gamble.\n";
+            cout << "Current balance: " << player.getMoney() << '\n';
+            cout << "Exiting...\n";
+            return;
+        }
+
         cout << "How much money would you like to bet?\n";
         cout << "Current balance: " << player.getMoney() << '\n';
 
-        int bet = 0;
+        int bet = -1;
         cin >> bet;
-        while (bet > player.getMoney()) {
-            cout << "Invalid input. You do not have the sufficient funds to bet that amount.\n";
+        while (bet > player.getMoney() || bet < 1) {
+            if (bet > player.getMoney()) {
+                cout << "Invalid input. You do not have the sufficient funds to bet that amount.\n";
+            }
+            else if (bet < 1) {
+                cout << "Invalid input. You cannot bet no/negative money.\n";
+            }
             cout << "Please enter a valid amount you would like to bet from your funds.\n";
             cout << "Current balance: " << player.getMoney() << '\n';
             cin.clear();
