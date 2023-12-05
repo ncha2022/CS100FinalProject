@@ -243,6 +243,10 @@ Character Game::initializeEnemyForRoom(int roomNumber) {
     return enemy;
 }
 
+Character& Game::getPlayer() {
+    return player;
+}
+
 
 void Game::checkGameOver() {
     if (gameOver) {
@@ -260,8 +264,7 @@ int main() {
     Game game;
     game.startGame();
 
-    cout << "storyline " << endl;
-    cout << "storyline " << endl;
+   // add more storyline if needed
 
     bool gameRunning = true;
 
@@ -273,7 +276,8 @@ int main() {
         cout << "2. Visit Store" << endl;
         cout << "3. Move to Next Room" << endl;
         cout << "4. Check Stats" << endl;
-        cout << "5. Quit Game" << endl;
+        cout << "5. Gamble" << endl; 
+        cout << "6. Quit Game" << endl;
 
         int choice;
         cin >> choice;
@@ -292,6 +296,9 @@ int main() {
                 game.checkStats();
                 break;
             case 5:
+                gamble(game.getPlayer()); 
+                break;
+            case 6:
                 cout << "THE END" << endl;
                 gameRunning = false;
                 break;
