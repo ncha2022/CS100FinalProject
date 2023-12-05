@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+using namespace std ; 
+
 Store :: Store ()
 {
     // initialize creation of store array 
@@ -52,20 +54,20 @@ Store :: Store ()
     vector <string>itemEleven = { "Gun", "increases attack by 100000 points", "1" } ; 
     storeVector.push_back(itemEleven) ; 
 
-    vector <string>itemEleven = { "Small Health Potion", "increases current health by 40 hp", "8" } ; 
-    storeVector.push_back(itemEleven) ; 
+    vector <string>itemTwelve = { "Small Health Potion", "increases current health by 40 hp", "8" } ; 
+    storeVector.push_back(itemTwelve) ; 
     
-    vector <string>itemEleven = { "Medium Health Potion", "increases current health by 70 hp", "8" } ; 
-    storeVector.push_back(itemEleven) ; 
+    vector <string>itemThirteen = { "Medium Health Potion", "increases current health by 70 hp", "8" } ; 
+    storeVector.push_back(itemThirteen) ; 
 
-    vector <string>itemEleven = { "Large Health Potion", "increases current health by 100 hp", "8" } ; 
-    storeVector.push_back(itemEleven) ; 
+    vector <string>itemFourteen = { "Large Health Potion", "increases current health by 100 hp", "8" } ; 
+    storeVector.push_back(itemFourteen) ; 
 
 }
 
 void Store :: displayStoreContents ( )
 {
-    for ( i = 0 ; storeVector[i] ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
         cout << "< Available Items >" << endl ; 
         cout << (storeVector[i])[0] << endl ; 
@@ -79,14 +81,15 @@ void Store :: displayItemInfo ( string userItemInfo )
 {
     int userItemIndex = 1000 ; 
 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItemInfo || (storeVector[i])[0] == tolower(userItemInfo) )  
         {
-        cout << (storeVector[i])[0] << endl ; 
-        cout << "\tdescription: " << (storeVector[i])[1] << endl ; 
-        cout << "\tquantity: " << (storeVector [i])[2] << endl ; 
-        cout << endl ; 
+            cout << (storeVector[i])[0] << endl ; 
+            cout << "\tdescription: " << (storeVector[i])[1] << endl ; 
+            cout << "\tquantity: " << (storeVector [i])[2] << endl ; 
+            cout << endl ; 
+            userItemIndex = i ;
         }
     }
 
@@ -98,7 +101,6 @@ void Store :: displayItemInfo ( string userItemInfo )
 
     storeMenu() ; 
 
-    return ; 
 }
 
 void Store :: purchaseItem ( string userItem )
@@ -107,9 +109,9 @@ void Store :: purchaseItem ( string userItem )
     // quantity decreased if quantity is > 1 
     
     int userItemIndex = 1000 ; 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(userItem) )  
         {
             userItemIndex = i ; 
             return ; 
@@ -125,14 +127,14 @@ void Store :: purchaseItem ( string userItem )
 
     if ( (storeVector[userItemIndex])[2] == "0" )
     {
-        throw item_out_of_stock( "Item out of stock; quantity = 0" ) ; 
+        throw out_of_range( "Item out of stock; quantity = 0" ) ; 
         storeMenu() ; 
         return ; 
     }
 
     // quantity adjustment
 
-    while ( int i = 1 ; storeVector[userItemIndex][2]; i ++ )
+    for ( int i = 1 ; i < storeVector.size() ; i ++ )
     {
         if ( i == stoi (storeVector[userItemIndex][2]) )
         {
@@ -161,9 +163,9 @@ void Store :: displayItemQuantity ( string userItem )
 {
     // displays quantity of item name entered by user
     int userItemIndex = 1000 ; 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItem ) 
         {
             userItemIndex = i ; 
             cout << "Description: " << (storeVector[userItemIndex])[1] << endl ;
@@ -186,9 +188,9 @@ void Store :: displayItemDescription ( string userItem )
 {
     // displays description of item name entered by user
     int userItemIndex = 1000 ; 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItem )  
         {
             userItemIndex = i ; 
             return ; 

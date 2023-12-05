@@ -3,12 +3,13 @@
 #include <vector>
 #include <string>
 
+
 class Store
 {
     private:
     
-        // vector holding items and their info in the store
-        vector <string> storeVector ; 
+        // vector holding vectors holdiing items and their info in the store
+        vector <vector <string>> storeVector ; 
         
     public:
 
@@ -22,7 +23,7 @@ class Store
         void displayItemInfo( string userItem ) ; 
 
         // display quantity of user requested item; not sure if should count directly or display quantity 
-        int displayItemQuantity( string userItem ) ;
+        void displayItemQuantity( string userItem ) ;
 
         // display description for each user requested item 
         void displayItemDescription( string userItem ) ; 
