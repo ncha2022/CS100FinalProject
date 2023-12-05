@@ -18,7 +18,8 @@ Store :: Store ()
     // 0 = name
     // 1 = description
     // 2 = quantity
-    vector<string>itemOne = { "Sword", "increases next attack by 5 points", "1" } ; 
+
+    vector<string>itemOne = { "Sword", "increases attack by 5 points", "1" } ; 
     storeVector.push_back(itemOne) ; 
 
     vector<string>itemTwo = { "Shield", "decreases next attack of enemy by 2 points", "2" } ; 
@@ -76,13 +77,15 @@ void Store :: displayItemInfo ( string userItemInfo )
         return ; 
     }
 
+    storeMenu() ; 
+
     return ; 
 }
 
 void Store :: purchaseItem ( string userItem )
 {
     // useritem is removed from vector if quantity = 1
-    // quantity decreased if quantity is > 1
+    // quantity decreased if quantity is > 1 
     
     int userItemIndex = 1000 ; 
     for ( i = 0 ; storeVector.at(i) ; i ++ )
@@ -97,23 +100,19 @@ void Store :: purchaseItem ( string userItem )
     if ( userItemIndex == 1000 )
     {
         throw invalid_argument("Invalid item entered") ;
+        storeMenu() ; 
+        return ; 
     }
 
     if ( (storeVector[userItemIndex])[2] == "0" )
     {
         throw item_out_of_stock( "Item out of stock; quantity = 0" ) ; 
-
+        storeMenu() ; 
+        return ; 
     }
 
-    // if ( (storeVector[userItemIndex])[2] == 1 )
-    // {
-    //     // remove entire item
-    //     // out of stock
-    //     // storeVector.erase( storeVector.begin() + userItemIndex ) ;
+    // quantity adjustment 
 
-    //     // change quantity to 0
-
-    // }
     if ((storeVector[userItemIndex])[2] == "1" )
     {
         (storeVector[userItemIndex])[2] = "0" ;  
@@ -127,11 +126,17 @@ void Store :: purchaseItem ( string userItem )
         (storeVector[userItemIndex])[2] = "2" ;  
     } 
 
-
     // ADD TO INVENTORY
-    // CHANGE CHARCTER STATS
-    
 
+    string userItemName = storeVector[userItemIndex][0] ; 
+
+    for (auto it = items.begin(); it != items.end(); ) {
+        if (it->name == userItemName) {
+            items.addItem(it);
+        } else {
+            ++it;
+        }
+    }
 
     return ;
 }
@@ -153,7 +158,10 @@ void Store :: displayItemQuantity ( string userItem )
     if ( userItemIndex == 1000 )
     {
         throw invalid_argument("Invalid item entered") ;
+        storeMenu() ; 
     }
+
+    storeMenu() ; 
 
     return ;   
 }
@@ -178,6 +186,8 @@ void Store :: displayItemDescription ( string userItem )
     }
 
     cout << "Quantity: " << (storeVector[userItemIndex])[2] << endl ;
+
+    storeMenu() ; 
     
 }
 
@@ -214,9 +224,12 @@ void Store :: storeMenu ()
             getline ( cin, userPurchaseItem ) ; 
             purchaseItem( userPurchaseItem ) ; 
         }
+
         printMenu() ;
         cin >> userChoice ;
     }
+
+    return ; 
 }
 
 void Store :: printMenu ()
@@ -229,4 +242,4 @@ void Store :: printMenu ()
     cout << "2) Learn more about an item" << endl ; // prints description and quantity of spoecific item
     cout << "3) Purchase an item" << endl ; 
     cout << "4) Leave Store" << endl ; 
-}
+} 
