@@ -1,6 +1,5 @@
 #include <iostream>
 #include <limits>
-#include "../header/Character.h"
 #ifdef _WIN32
 #include <Windows.h>
 #else
