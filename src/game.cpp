@@ -8,9 +8,54 @@ Game::Game() : player(), inventory(), store(), currentRoom(0), gameOver(false) {
 }
 
 void Game::startGame() {
-    cout << " CHANGE WELCOME MESSAGE " << endl;
-    // initialize character, inventory, etc
+    cout << "Welcome to our game" << endl;
+
+    cout << "Choose your character class:" << endl;
+    cout << "1. Tank" << endl;
+    cout << "2. Fighter" << endl;
+    cout << "3. Glass Cannon" << endl;
+    cout << "4. Gambler" << endl;
+
+    int classChoice;
+    cin >> classChoice;
+    string chosenClass;
+
+    switch (classChoice) {
+        case 1:
+            chosenClass = "Tank";
+            break;
+        case 2:
+            chosenClass = "Fighter";
+            break;
+        case 3:
+            chosenClass = "Glass Cannon";
+            break;
+        case 4:
+            chosenClass = "Gambler";
+            break;
+        default:
+            cout << "Invalid choice. Defaulting to Fighter." << endl;
+            chosenClass = "Fighter";
+    }
+
+    player.setClass(chosenClass, player);
+    cout << "You have chosen the " << chosenClass << " class!" << endl;
+
+    // initial room
+    currentRoom = 1;
+    cout << "You start your journey in room " << currentRoom << "." << endl;
+
+    // storyline info
+    cout << "your adventure begins...." << endl;
+    cout << "add more story here " << endl;
+
+    // instructions
+    cout << "here are some instructions on how to play the game: " << endl;
+
+    // game loop
+    cout << "your journey starts now!!" << endl;
 }
+
 
 void Game::openInventory() {
     bool inventoryOpen = true;
