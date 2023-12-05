@@ -22,7 +22,6 @@
 >     -  Mouse inputs
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted.
->     - Ascii graphics
 >     - Engaging story
 >     - Gambling system
 >     - Turn based fighting
@@ -56,34 +55,27 @@
 > ## Main Menu
 > - **Commands:**
 > - `New Game`: Starts a new game session.
-> - `Load Game`: Loads a previously saved game session.
 > - `Quit`: Exits the game.
 
 > ## Character Creation
 > - **Commands:**
 > - `Choose Class`: Enter a command to select a class like Rogue, Knight, Mage, etc.
-> - `Allocate Stats`: Assign stat points to attributes like Strength, Agility, Intelligence, etc.
 
 > ## Class Selection
 > - **Commands:**
 > - `Select Class`: Choose your character's class from options such as [Rogue], [Knight], [Mage].
 
-> ## Stats Allocation
-> - **Commands:**
-> - `Increase Stat`: Add points to a specific stat, ex, `Strength: 5 [+][-]`.
-> - `Decrease Stat`: Subtract points from a specific stat.
-
 > ## Gameplay
 > - **Commands:**
 > - `Inventory`: Opens the player's inventory to view items.
-> - `Look Around`: Provides a description of the player's surroundings.
-> - `Move`: Enter a direction to move your character, ex, `Move North`.
-> - `Interact`: Engage with the environment or NPCs.
+> - `Move Room`: Enter a direction to move your character to a different room.
+> - `Gamble`: Allows a gambling system for the player to gamble their money away.
 
 > ## Inventory System
 > - **Commands:**
 > - `Use Item`: Utilize an item from the inventory, ex, `Health Potion [Use]`.
 > - `Equip Item`: Equip an item to the character, ex, `Sword [Equip]`.
+> - `Unequip Item`: Unequip an item to the character, ex, `Sword [Unequip]`.
 
 > ## Store System
 > - **Commands:**
@@ -92,9 +84,7 @@
 > ## Turn-Based Fighting
 > - **Commands:**
 > - `Attack`: Choose to attack the enemy.
-> - `Defend`: Take a defensive stance to reduce damage.
 > - `Use Item`: Use an item from your inventory during combat.
-> - `Flee`: Attempt to escape from combat.
 
 > ## Gambling System
 > - **Commands:**
