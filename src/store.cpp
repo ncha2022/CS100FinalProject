@@ -65,7 +65,7 @@ Store :: Store ()
 
 void Store :: displayStoreContents ( )
 {
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( i = 0 ; storeVector[i] ; i ++ )
     {
         cout << "< Available Items >" << endl ; 
         cout << (storeVector[i])[0] << endl ; 
@@ -143,7 +143,7 @@ void Store :: purchaseItem ( string userItem )
 
 
     // ADD TO INVENTORY
-    
+
     string userItemName = storeVector[userItemIndex][0] ; 
 
     for (auto it = items.begin(); it != items.end(); ) {
@@ -255,7 +255,7 @@ void Store :: printMenu ()
     
     cout << "< Menu >" << endl ; 
     cout << "1) View available items in Store" << endl ; // print item names ONLY
-    cout << "2) Learn more about an item" << endl ; // prints description and quantity of spoecific item
+    cout << "2) Learn more about an item" << endl ; // prints description and quantity of specific item
     cout << "3) Purchase an item" << endl ; 
     cout << "4) Leave Store" << endl ; 
 } 
