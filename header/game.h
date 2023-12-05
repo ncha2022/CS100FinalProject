@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Inventory.h"
 #include "Store.hpp"
+#include "gamble.cpp"
 #include <vector>
 #include <string>
 
@@ -24,6 +25,7 @@ public:
     void fightEnemy(Character &enemy, bool isBossBattle); 
     void moveToNextRoom();
     Character initializeEnemyForRoom(int roomNumber); 
+    Character& getPlayer();
     void checkGameOver();
     void restartGame();
 };
