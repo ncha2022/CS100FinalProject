@@ -9,7 +9,7 @@ Character::Character() {
     currClass = "";
     weapon = "";
     armor = "";
-    money = 0;
+    money = 50;
     lvl = 1;
     exp = 0;
     maxHealth = 100;
