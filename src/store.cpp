@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+using namespace std ; 
+
 Store :: Store ()
 {
     // initialize creation of store array 
@@ -19,34 +21,53 @@ Store :: Store ()
     // 1 = description
     // 2 = quantity
 
-    vector<string>itemOne = { "Sword", "increases attack by 5 points", "1" } ; 
+    vector<string>itemOne = { "Leather Armor", "increases max health by 10 hp", "1" } ; 
     storeVector.push_back(itemOne) ; 
 
-    vector<string>itemTwo = { "Shield", "decreases next attack of enemy by 2 points", "2" } ; 
+    vector<string>itemTwo = { "Chainmail Armor", "increases max health by 30 hp", "1" } ; 
     storeVector.push_back(itemTwo) ; 
 
-    vector<string>itemThree = { "Apple Juice", "decreases next attack of enemy by 4 points", "1" } ; 
+    vector<string>itemThree = { "Iron Armor", "increases max health by 60 hp", "1" } ; 
     storeVector.push_back(itemThree) ; 
 
-    vector <string>itemFour = { "Buttered Toast", "next attack does 2 more damage points", "3" } ; 
+    vector <string>itemFour = { "Gold Armor", "increases max health by 70 hp", "1" } ; 
     storeVector.push_back(itemFour) ; 
 
-    vector <string>itemFive = { "Stick", "increases next attack by 1 point", "3" } ; 
+    vector <string>itemFive = { "Diamond Armor", "increases max health by 120 hp", "1" } ; 
     storeVector.push_back(itemFive) ; 
 
-    vector <string>itemSix = { "Cool Jacket", "immune to enemy's next attack", "1" } ; 
+    vector <string>itemSix = { "Wood Sword", "increases attack by 10 points", "1" } ; 
     storeVector.push_back(itemSix) ; 
 
-    vector <string>itemSeven = { "Party Hat", "heal 2 hearts", "2" } ; 
+    vector <string>itemSeven = { "Stone Sword", "increases attack by 30 points", "1" } ; 
     storeVector.push_back(itemSeven) ; 
 
-    vector <string>itemEight = { "Corn on the Cob", "heal 3 hearts", "1" } ; 
+    vector <string>itemEight = { "Iron Sword", "increases attack by 60 points", "1" } ; 
     storeVector.push_back(itemEight) ; 
+
+    vector <string>itemNine = { "Gold Sword", "increases attack by 70 points", "1" } ; 
+    storeVector.push_back(itemNine) ; 
+
+    vector <string>itemTen = { "Diamond Sword", "increases attack by 100 points", "1" } ; 
+    storeVector.push_back(itemTen) ; 
+
+    vector <string>itemEleven = { "Gun", "increases attack by 100000 points", "1" } ; 
+    storeVector.push_back(itemEleven) ; 
+
+    vector <string>itemTwelve = { "Small Health Potion", "increases current health by 40 hp", "8" } ; 
+    storeVector.push_back(itemTwelve) ; 
+    
+    vector <string>itemThirteen = { "Medium Health Potion", "increases current health by 70 hp", "8" } ; 
+    storeVector.push_back(itemThirteen) ; 
+
+    vector <string>itemFourteen = { "Large Health Potion", "increases current health by 100 hp", "8" } ; 
+    storeVector.push_back(itemFourteen) ; 
+
 }
 
 void Store :: displayStoreContents ( )
 {
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
         cout << "< Available Items >" << endl ; 
         cout << (storeVector[i])[0] << endl ; 
@@ -60,14 +81,15 @@ void Store :: displayItemInfo ( string userItemInfo )
 {
     int userItemIndex = 1000 ; 
 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItemInfo || (storeVector[i])[0] == tolower(userItemInfo) )  
         {
-        cout << (storeVector[i])[0] << endl ; 
-        cout << "\tdescription: " << (storeVector[i])[1] << endl ; 
-        cout << "\tquantity: " << (storeVector [i])[2] << endl ; 
-        cout << endl ; 
+            cout << (storeVector[i])[0] << endl ; 
+            cout << "\tdescription: " << (storeVector[i])[1] << endl ; 
+            cout << "\tquantity: " << (storeVector [i])[2] << endl ; 
+            cout << endl ; 
+            userItemIndex = i ;
         }
     }
 
@@ -79,7 +101,6 @@ void Store :: displayItemInfo ( string userItemInfo )
 
     storeMenu() ; 
 
-    return ; 
 }
 
 void Store :: purchaseItem ( string userItem )
@@ -88,9 +109,9 @@ void Store :: purchaseItem ( string userItem )
     // quantity decreased if quantity is > 1 
     
     int userItemIndex = 1000 ; 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(userItem) )  
         {
             userItemIndex = i ; 
             return ; 
@@ -106,25 +127,22 @@ void Store :: purchaseItem ( string userItem )
 
     if ( (storeVector[userItemIndex])[2] == "0" )
     {
-        throw item_out_of_stock( "Item out of stock; quantity = 0" ) ; 
+        throw out_of_range( "Item out of stock; quantity = 0" ) ; 
         storeMenu() ; 
         return ; 
     }
 
-    // quantity adjustment 
+    // quantity adjustment
 
-    if ((storeVector[userItemIndex])[2] == "1" )
+    for ( int i = 1 ; i < storeVector.size() ; i ++ )
     {
-        (storeVector[userItemIndex])[2] = "0" ;  
+        if ( i == stoi (storeVector[userItemIndex][2]) )
+        {
+            string newQuantity = to_string( i - 1 ) ; 
+            storeVector[userItemIndex][2] = newQuantity ; 
+        }
     }
-    else if ((storeVector[userItemIndex])[2] == "2" )
-    {
-        (storeVector[userItemIndex])[2] = "1" ;  
-    }
-    else
-    {
-        (storeVector[userItemIndex])[2] = "2" ;  
-    } 
+
 
     // ADD TO INVENTORY
 
@@ -145,9 +163,9 @@ void Store :: displayItemQuantity ( string userItem )
 {
     // displays quantity of item name entered by user
     int userItemIndex = 1000 ; 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItem ) 
         {
             userItemIndex = i ; 
             cout << "Description: " << (storeVector[userItemIndex])[1] << endl ;
@@ -170,9 +188,9 @@ void Store :: displayItemDescription ( string userItem )
 {
     // displays description of item name entered by user
     int userItemIndex = 1000 ; 
-    for ( i = 0 ; storeVector.at(i) ; i ++ )
+    for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem || (storeVector[i])[0] == tolower(useritem) )  
+        if ( (storeVector[i])[0] == userItem )  
         {
             userItemIndex = i ; 
             return ; 
@@ -239,7 +257,7 @@ void Store :: printMenu ()
     
     cout << "< Menu >" << endl ; 
     cout << "1) View available items in Store" << endl ; // print item names ONLY
-    cout << "2) Learn more about an item" << endl ; // prints description and quantity of spoecific item
+    cout << "2) Learn more about an item" << endl ; // prints description and quantity of specific item
     cout << "3) Purchase an item" << endl ; 
     cout << "4) Leave Store" << endl ; 
 } 
