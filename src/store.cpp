@@ -19,29 +19,48 @@ Store :: Store ()
     // 1 = description
     // 2 = quantity
 
-    vector<string>itemOne = { "Sword", "increases attack by 5 points", "1" } ; 
+    vector<string>itemOne = { "Leather Armor", "increases max health by 10 hp", "1" } ; 
     storeVector.push_back(itemOne) ; 
 
-    vector<string>itemTwo = { "Shield", "decreases next attack of enemy by 2 points", "2" } ; 
+    vector<string>itemTwo = { "Chainmail Armor", "increases max health by 30 hp", "1" } ; 
     storeVector.push_back(itemTwo) ; 
 
-    vector<string>itemThree = { "Apple Juice", "decreases next attack of enemy by 4 points", "1" } ; 
+    vector<string>itemThree = { "Iron Armor", "increases max health by 60 hp", "1" } ; 
     storeVector.push_back(itemThree) ; 
 
-    vector <string>itemFour = { "Buttered Toast", "next attack does 2 more damage points", "3" } ; 
+    vector <string>itemFour = { "Gold Armor", "increases max health by 70 hp", "1" } ; 
     storeVector.push_back(itemFour) ; 
 
-    vector <string>itemFive = { "Stick", "increases next attack by 1 point", "3" } ; 
+    vector <string>itemFive = { "Diamond Armor", "increases max health by 120 hp", "1" } ; 
     storeVector.push_back(itemFive) ; 
 
-    vector <string>itemSix = { "Cool Jacket", "immune to enemy's next attack", "1" } ; 
+    vector <string>itemSix = { "Wood Sword", "increases attack by 10 points", "1" } ; 
     storeVector.push_back(itemSix) ; 
 
-    vector <string>itemSeven = { "Party Hat", "heal 2 hearts", "2" } ; 
+    vector <string>itemSeven = { "Stone Sword", "increases attack by 30 points", "1" } ; 
     storeVector.push_back(itemSeven) ; 
 
-    vector <string>itemEight = { "Corn on the Cob", "heal 3 hearts", "1" } ; 
+    vector <string>itemEight = { "Iron Sword", "increases attack by 60 points", "1" } ; 
     storeVector.push_back(itemEight) ; 
+
+    vector <string>itemNine = { "Gold Sword", "increases attack by 70 points", "1" } ; 
+    storeVector.push_back(itemNine) ; 
+
+    vector <string>itemTen = { "Diamond Sword", "increases attack by 100 points", "1" } ; 
+    storeVector.push_back(itemTen) ; 
+
+    vector <string>itemEleven = { "Gun", "increases attack by 100000 points", "1" } ; 
+    storeVector.push_back(itemEleven) ; 
+
+    vector <string>itemEleven = { "Small Health Potion", "increases current health by 40 hp", "8" } ; 
+    storeVector.push_back(itemEleven) ; 
+    
+    vector <string>itemEleven = { "Medium Health Potion", "increases current health by 70 hp", "8" } ; 
+    storeVector.push_back(itemEleven) ; 
+
+    vector <string>itemEleven = { "Large Health Potion", "increases current health by 100 hp", "8" } ; 
+    storeVector.push_back(itemEleven) ; 
+
 }
 
 void Store :: displayStoreContents ( )
@@ -111,23 +130,20 @@ void Store :: purchaseItem ( string userItem )
         return ; 
     }
 
-    // quantity adjustment 
+    // quantity adjustment
 
-    if ((storeVector[userItemIndex])[2] == "1" )
+    while ( int i = 1 ; storeVector[userItemIndex][2]; i ++ )
     {
-        (storeVector[userItemIndex])[2] = "0" ;  
+        if ( i == stoi (storeVector[userItemIndex][2]) )
+        {
+            string newQuantity = to_string( i - 1 ) ; 
+            storeVector[userItemIndex][2] = newQuantity ; 
+        }
     }
-    else if ((storeVector[userItemIndex])[2] == "2" )
-    {
-        (storeVector[userItemIndex])[2] = "1" ;  
-    }
-    else
-    {
-        (storeVector[userItemIndex])[2] = "2" ;  
-    } 
+
 
     // ADD TO INVENTORY
-
+    
     string userItemName = storeVector[userItemIndex][0] ; 
 
     for (auto it = items.begin(); it != items.end(); ) {
