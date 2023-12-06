@@ -21,9 +21,11 @@ public:
     Game(); 
     void startGame();
     void openInventory();
+    void checkLevelUp();
     void enterStore();
     void fightEnemy(Character &enemy, bool isBossBattle); 
     void moveToNextRoom();
+    void displayPlayerStats();
     Character initializeEnemyForRoom(int roomNumber); 
     Character& getPlayer();
     void checkGameOver();

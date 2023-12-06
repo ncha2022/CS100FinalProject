@@ -2,11 +2,12 @@
 #include <iostream>
 #include <limits>
 
-
 using namespace std;
 
 Game::Game() : player(), inventory(), store(), currentRoom(0), gameOver(false) {
     player.setMoney(50); // starting money
+    player.setLvl(1);
+    player.setExp(0);
 }
 
 void Game::startGame() {
@@ -58,6 +59,33 @@ void Game::startGame() {
     // ... rest of the function
 }
 
+void Game::displayPlayerStats() {
+    cout << "\nPlayer Stats:" << endl;
+    cout << "Class: " << player.getClass() << endl;
+    cout << "Level: " << player.getLvl() << endl;
+    cout << "Experience: " << player.getExp() << endl;
+    cout << "Money: " << player.getMoney() << endl;
+    cout << "Health: " << player.getCurrentHealth() << "/" << player.getMaxHealth() << endl;
+    cout << "Base Damage: " << player.getBaseDamage() << endl;
+    cout << "Total Damage: " << player.getTotalDamage() << endl;
+}
+
+void Game::checkLevelUp() {
+    while (player.getExp() >= 25) {
+        player.setExp(player.getExp() - 25); 
+        player.setLvl(player.getLvl() + 1); 
+
+        // increase base stats
+        player.setMaxHealth(player.getMaxHealth() + 10);
+        player.setBaseDamage(player.getBaseDamage() + 10);
+
+        cout << "Congratulations! You've leveled up to level " << player.getLvl() << "!" << endl;
+        cout << "Your health and damage have increased!" << endl;
+        cout << "Max Health: " << player.getMaxHealth() << "." << endl;
+        cout << "Base Damage: " << player.getBaseDamage() << "." << endl;
+    }
+}
+
 
 void Game::openInventory() {
     bool inventoryOpen = true;
@@ -70,6 +98,7 @@ void Game::openInventory() {
         cout << "5. Unequip Armor" << endl;
         cout << "6. Use Consumable" << endl;
         cout << "7. Return to Main Menu" << endl;
+        cout << "8. Quit Game" << endl;
 
         int choice;
         cin >> choice;
@@ -117,6 +146,9 @@ void Game::openInventory() {
                 break;
             }
             case 7:
+                inventoryOpen = false;
+                break;
+            case 8:
                 inventoryOpen = false;
                 break;
             default:
@@ -210,6 +242,18 @@ void Game::fightEnemy(Character &enemy, bool isBossBattle) {
         // if enemy is defeated
         if (enemy.getCurrentHealth() <= 0) {
             cout << "You defeated the enemy!" << endl;
+            int baseReward = 5;
+            int rewardMoney = baseReward * enemy.getLvl(); // reward based on enemy level
+            player.setMoney(player.getMoney() + rewardMoney);
+            cout << "You have earned " << rewardMoney << " coins! Current money: " << player.getMoney() << endl;
+
+            int baseXP = 10; // base xp amount
+            int xpGained = baseXP * enemy.getLvl(); // xp based on enemy level
+            player.setExp(player.getExp() + xpGained);
+            cout << "You have earned " << xpGained << " XP! Total XP: " << player.getExp() << endl;
+
+            checkLevelUp();
+
             if (isBossBattle) {
                 cout << "Congratulations, you have defeated the boss and won the game!" << endl;
                 gameOver = true;
@@ -262,15 +306,22 @@ Character& Game::getPlayer() {
 
 void Game::checkGameOver() {
     if (gameOver) {
-        cout << "Game Over. Restarting..." << endl;
+        cout << "Game Over. Restarting..." << endl << endl;
         restartGame();
     }
 }
 
 void Game::restartGame() {
-    // Reset game state
-    Game();
+    currentRoom = 0;
+    gameOver = false;
+
+    player.setMoney(50); 
+    player.setLvl(1);
+    player.setExp(0);  
+
+    startGame();
 }
+
 
 int Game::getCurrentRoom() const{
     return currentRoom;
@@ -285,14 +336,15 @@ int main() {
     bool gameRunning = true;
 
     while (gameRunning) {
-        cout << "\nYou are currently in Room " << game.getCurrentRoom() << " of 10 ." << endl;
+        cout << "\nYou are currently in Room " << game.getCurrentRoom() << " of 10." << endl;
         
         cout << "Choose an action:" << endl;
         cout << "1. Open Inventory" << endl;
         cout << "2. Visit Store" << endl;
         cout << "3. Move to Next Room" << endl;
         cout << "4. Gamble" << endl; 
-        cout << "5. Quit Game" << endl;
+        cout << "5. View Stats" << endl;
+        cout << "6. Quit Game" << endl;
 
         int choice;
         cin >> choice;
@@ -311,7 +363,10 @@ int main() {
                 // gamble(game.getPlayer()); 
                 break;
             case 5:
-                cout << "THE END" << endl;
+                game.displayPlayerStats();
+                break;
+            case 6:
+                cout << "Exited out of game." << endl;
                 gameRunning = false;
                 break;
             default:
