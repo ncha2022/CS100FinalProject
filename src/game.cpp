@@ -1,5 +1,7 @@
-#include "game.h"
+#include "../header/game.h"
 #include <iostream>
+#include <limits>
+
 
 using namespace std;
 
@@ -8,52 +10,52 @@ Game::Game() : player(), inventory(), store(), currentRoom(0), gameOver(false) {
 }
 
 void Game::startGame() {
-    cout << "Welcome to our game" << endl;
-
-    cout << "Choose your character class:" << endl;
-    cout << "1. Tank" << endl;
-    cout << "2. Fighter" << endl;
-    cout << "3. Glass Cannon" << endl;
-    cout << "4. Gambler" << endl;
-
+    cout << "Hello! Welcome to the dungeon games." << endl;
     int classChoice;
-    cin >> classChoice;
     string chosenClass;
+    bool validClass = false;
 
-    switch (classChoice) {
-        case 1:
-            chosenClass = "Tank";
-            break;
-        case 2:
-            chosenClass = "Fighter";
-            break;
-        case 3:
-            chosenClass = "Glass Cannon";
-            break;
-        case 4:
-            chosenClass = "Gambler";
-            break;
-        default:
-            cout << "Invalid choice. Defaulting to Fighter." << endl;
-            chosenClass = "Fighter";
+    while (!validClass) {
+        cout << "Choose your character class:" << endl;
+        cout << "1. Tank" << endl;
+        cout << "2. Fighter" << endl;
+        cout << "3. Glass Cannon" << endl;
+        cout << "4. Gambler" << endl;
+
+        if (cin >> classChoice) {
+            switch (classChoice) {
+                case 1:
+                    chosenClass = "Tank";
+                    validClass = true;
+                    break;
+                case 2:
+                    chosenClass = "Fighter";
+                    validClass = true;
+                    break;
+                case 3:
+                    chosenClass = "Glass Cannon";
+                    validClass = true;
+                    break;
+                case 4:
+                    chosenClass = "Gambler";
+                    validClass = true;
+                    break;
+                default:
+                    cout << "Invalid choice. Please choose a valid class." << endl;
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    break;
+            }
+        } else {
+            cout << "Invalid input. Please enter a number." << endl;
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
     }
 
     player.setClass(chosenClass, player);
     cout << "You have chosen the " << chosenClass << " class!" << endl;
-
-    // initial room
-    currentRoom = 1;
-    cout << "You start your journey in room " << currentRoom << "." << endl;
-
-    // storyline info
-    cout << "your adventure begins...." << endl;
-    cout << "add more story here " << endl;
-
-    // instructions
-    cout << "here are some instructions on how to play the game: " << endl;
-
-    // game loop
-    cout << "your journey starts now!!" << endl;
+    // ... rest of the function
 }
 
 
@@ -81,7 +83,7 @@ void Game::openInventory() {
                 string weapon;
                 cin.ignore(); 
                 getline(cin, weapon);
-                if (inventory.getEquippedWeapon() == weapon) {
+                if (player.getWeapon() == weapon) {
                     cout << "Weapon '" << weapon << "' is already equipped." << endl;
                 } else {
                     inventory.equipWeapon(weapon);
@@ -96,7 +98,7 @@ void Game::openInventory() {
                 string armor;
                 cin.ignore(); 
                 getline(cin, armor);
-                if (inventory.getEquippedArmor() == armor) {
+                if (player.getArmor() == armor) {
                     cout << "Armor '" << armor << "' is already equipped." << endl;
                 } else {
                     inventory.equipArmor(armor);
@@ -166,13 +168,20 @@ void Game::fightEnemy(Character &enemy, bool isBossBattle) {
             cout << "2. Use Item" << endl;
 
             int choice;
-            cin >> choice;
+            if (!(cin >> choice)) {
+                cout << "Invalid input. Please enter a number." << endl;
+                cin.clear(); 
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue; // go to next iteration of while loop
+            }
 
             switch (choice) {
                 case 1: {
+                    int damage = player.getTotalDamage();
                     cout << "You attack the enemy!" << endl;
-                    int enemyHealth = enemy.getCurrentHealth() - player.getTotalDamage();
+                    int enemyHealth = enemy.getCurrentHealth() - damage;
                     enemy.setCurrentHealth(enemyHealth > 0 ? enemyHealth : 0);
+                    cout << "The enemy has taken " << damage << " damage! Enemy's current HP: " << enemy.getCurrentHealth() << endl;
                     break;
                 }
                 case 2:
@@ -185,8 +194,10 @@ void Game::fightEnemy(Character &enemy, bool isBossBattle) {
         } else {
             // enemy's turn
             cout << "\nThe enemy attacks!" << endl;
-            int playerHealth = player.getCurrentHealth() - enemy.getTotalDamage();
+            int damage = enemy.getTotalDamage();
+            int playerHealth = player.getCurrentHealth() - damage;
             player.setCurrentHealth(playerHealth > 0 ? playerHealth : 0);
+            cout << "Ouch! You have taken " << damage << " damage! Your current HP: " << player.getCurrentHealth() << endl;
         }
 
         // if you lost
@@ -196,6 +207,7 @@ void Game::fightEnemy(Character &enemy, bool isBossBattle) {
             return;
         }
 
+        // if enemy is defeated
         if (enemy.getCurrentHealth() <= 0) {
             cout << "You defeated the enemy!" << endl;
             if (isBossBattle) {
@@ -260,6 +272,10 @@ void Game::restartGame() {
     Game();
 }
 
+int Game::getCurrentRoom() const{
+    return currentRoom;
+}
+
 int main() {
     Game game;
     game.startGame();
@@ -268,16 +284,15 @@ int main() {
 
     bool gameRunning = true;
 
-    while (gameRunning && !game.gameOver) {
-        cout << "\nYou are currently in Room " << game.getCurrentRoom() << " of " << game.getTotalRooms() << "." << endl;
+    while (gameRunning) {
+        cout << "\nYou are currently in Room " << game.getCurrentRoom() << " of 10 ." << endl;
         
         cout << "Choose an action:" << endl;
         cout << "1. Open Inventory" << endl;
         cout << "2. Visit Store" << endl;
         cout << "3. Move to Next Room" << endl;
-        cout << "4. Check Stats" << endl;
-        cout << "5. Gamble" << endl; 
-        cout << "6. Quit Game" << endl;
+        cout << "4. Gamble" << endl; 
+        cout << "5. Quit Game" << endl;
 
         int choice;
         cin >> choice;
@@ -293,12 +308,9 @@ int main() {
                 game.moveToNextRoom();
                 break;
             case 4:
-                game.checkStats();
+                // gamble(game.getPlayer()); 
                 break;
             case 5:
-                gamble(game.getPlayer()); 
-                break;
-            case 6:
                 cout << "THE END" << endl;
                 gameRunning = false;
                 break;

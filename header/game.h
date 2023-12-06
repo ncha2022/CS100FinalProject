@@ -3,8 +3,8 @@
 
 #include "Character.h"
 #include "Inventory.h"
-#include "Store.hpp"
-#include "gamble.cpp"
+#include "store.hpp"
+#include "gamble.h"
 #include <vector>
 #include <string>
 
@@ -28,6 +28,7 @@ public:
     Character& getPlayer();
     void checkGameOver();
     void restartGame();
+    int getCurrentRoom() const;
 };
 
 #endif 
