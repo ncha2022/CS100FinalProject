@@ -19,7 +19,7 @@ Character::Character() {
 }
 
 // Constructor for old game
-Character::Character(string newClass, string newWeapon, string newArmor, int mny, int newLvl, int newExp, int maxHP, int currHP, int newBaseDamaage, int newTotalDamage) {
+Character::Character(string newClass, string newWeapon, string newArmor, int mny, int newLvl, int newExp, int maxHP, int currHP, int newBaseDamage, int newTotalDamage) {
     currClass = newClass;
     weapon = newWeapon;
     armor = newArmor;
@@ -28,7 +28,7 @@ Character::Character(string newClass, string newWeapon, string newArmor, int mny
     exp = newExp;
     maxHealth = maxHP;
     currentHealth = currHP;
-    baseDamage = newBaseDamaage;
+    baseDamage = newBaseDamage;
     totalDamage = newTotalDamage;
 }
 

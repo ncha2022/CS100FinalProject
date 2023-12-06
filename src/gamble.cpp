@@ -1,6 +1,6 @@
 #include <iostream>
 #include <limits>
-#include "../header/Character.h"
+#include "../header/gamble.h"
 #ifdef _WIN32
 #include <Windows.h>
 #else
@@ -8,13 +8,13 @@
 #endif
 using namespace std;
 
-int dice(int num) {
+int Gamble::dice(int num) {
     srand(time(0)); //set seed
     int roll = (rand() % num) + 1; //roll of 1 - num
     return roll;
 }
 
-void gamble(Character player) { 
+void Gamble::gamble(Character player) { 
     char input = 'x';
 
     while (input != 'y' && input != 'n') {

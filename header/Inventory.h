@@ -25,6 +25,9 @@ class Inventory {
         void equipArmor(string);
         void unequipArmor();
         void useConsumable(string);
+        vector<Item>::iterator begin() { return items.begin(); }
+        vector<Item>::iterator end() { return items.end(); }
+
 };
 
 #endif 
