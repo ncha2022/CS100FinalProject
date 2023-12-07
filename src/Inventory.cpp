@@ -1,6 +1,8 @@
 #include "../header/Inventory.h"
 #include "../header/Character.h"
 
+#include <iostream>
+
 using namespace std;
 
 Item::Item(string name) : name(name) {}
@@ -122,14 +124,14 @@ void Inventory::unequipArmor(){
 
 void Inventory::useConsumable(string consumable){
     if(consumable == "Small Health Potion"){
-        player.setCurrentHealth(player.getCurrentHealth + 40);
-        cout << "You now have " << player.getCurrentHealth << " hp." << cout;
+        player.setCurrentHealth(player.getCurrentHealth() + 40);
+        cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
     }else if(consumable == "Medium Health Potion"){
-        player.setCurrentHealth(player.getCurrentHealth + 70);
-        cout << "You now have " << player.getCurrentHealth << " hp." << cout;
+        player.setCurrentHealth(player.getCurrentHealth() + 70);
+        cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
     }else if(consumable == "Large Health Potion"){
-        player.setCurrentHealth(player.getCurrentHealth + 100);
-        cout << "You now have " << player.getCurrentHealth << " hp." << cout;
+        player.setCurrentHealth(player.getCurrentHealth() + 100);
+        cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
     }else{
         cout << "Cannot consume that item." << endl;
     }

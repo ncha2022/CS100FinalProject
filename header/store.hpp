@@ -2,7 +2,9 @@
 #define STORE_HPP
 #include <vector>
 #include <string>
+#include "Inventory.h"
 
+using namespace std;
 
 class Store
 {
@@ -10,6 +12,7 @@ class Store
     
         // vector holding vectors holdiing items and their info in the store
         vector <vector <string>> storeVector ; 
+        Inventory items;
         
     public:
 
@@ -37,6 +40,6 @@ class Store
         // print menu
         void printMenu() ; 
  
-}
+};
 
 #endif 

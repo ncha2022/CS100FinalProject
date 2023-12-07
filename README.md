@@ -22,7 +22,6 @@
 >     -  Mouse inputs
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted.
->     - Ascii graphics
 >     - Engaging story
 >     - Gambling system
 >     - Turn based fighting
@@ -48,7 +47,7 @@
  > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-> ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/edc2e688-79d1-45c7-95b9-74af3888b673)
+> ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/90943fcf-6c79-4e94-8299-74ce65de4c06)
 > This navigation diagram shows how each screen is interlinked and how they transfer between themselves.
 
 ### Screen Layouts
@@ -56,34 +55,27 @@
 > ## Main Menu
 > - **Commands:**
 > - `New Game`: Starts a new game session.
-> - `Load Game`: Loads a previously saved game session.
 > - `Quit`: Exits the game.
 
 > ## Character Creation
 > - **Commands:**
 > - `Choose Class`: Enter a command to select a class like Rogue, Knight, Mage, etc.
-> - `Allocate Stats`: Assign stat points to attributes like Strength, Agility, Intelligence, etc.
 
 > ## Class Selection
 > - **Commands:**
 > - `Select Class`: Choose your character's class from options such as [Rogue], [Knight], [Mage].
 
-> ## Stats Allocation
-> - **Commands:**
-> - `Increase Stat`: Add points to a specific stat, ex, `Strength: 5 [+][-]`.
-> - `Decrease Stat`: Subtract points from a specific stat.
-
 > ## Gameplay
 > - **Commands:**
 > - `Inventory`: Opens the player's inventory to view items.
-> - `Look Around`: Provides a description of the player's surroundings.
-> - `Move`: Enter a direction to move your character, ex, `Move North`.
-> - `Interact`: Engage with the environment or NPCs.
+> - `Move Room`: Enter a direction to move your character to a different room.
+> - `Gamble`: Allows a gambling system for the player to gamble their money away.
 
 > ## Inventory System
 > - **Commands:**
 > - `Use Item`: Utilize an item from the inventory, ex, `Health Potion [Use]`.
 > - `Equip Item`: Equip an item to the character, ex, `Sword [Equip]`.
+> - `Unequip Item`: Unequip an item to the character, ex, `Sword [Unequip]`.
 
 > ## Store System
 > - **Commands:**
@@ -92,9 +84,7 @@
 > ## Turn-Based Fighting
 > - **Commands:**
 > - `Attack`: Choose to attack the enemy.
-> - `Defend`: Take a defensive stance to reduce damage.
 > - `Use Item`: Use an item from your inventory during combat.
-> - `Flee`: Attempt to escape from combat.
 
 > ## Gambling System
 > - **Commands:**
@@ -106,7 +96,7 @@
 
 
 ## Class Diagram
- > ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/1c133fb9-161a-4c14-ada4-55686e68068a)
+ > ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/121526792/d886cfb9-65b0-4988-ad53-5259968500ca)
 >
 > The program starts out in the Main Menu where the player can have the option to load a new game, load a previously saved game, or quit the game/program altogether. The diagram also includes the Gameplay class, which includes direction and CurrCharacter and functions inventory, lookAround, move, and interact. These functions allow the player to control their chracter's movements during the gameplay. The function Menu takes the player to main menu, and createNewCharacter creates a new character in the game. The Chracter class includes all of the character's stats and accessible items such as strength, dexterity, weapon, and money. The chracter's class can be chosen through the ChooseClass function, and their stats through the ChooseStats function, which includes all their stats. These features are only accessible through the Character class. In the inventory class, players can acsess their character's inventory and perform actions such as equipping an item, dropping an item, or just viewing their inventory through their respective functions. The charcter's inventory is sored throguh an array with each item being string. Through the Gambling class, the chracter's movements are determined through a dice roll. The random number produced by this chooses their path. In the Store class, the player can purchase things for their character through the store, which is an array storing the name of each item in string. Players can choose to display the contents of the store, and display the  quantity or description of an item they are interested in in the store through their respective functions. Through the private removeFromStore and addBackToStore functions the program is then abke to update the contents of the store if the player chooses to purchase or return an item. 
 
