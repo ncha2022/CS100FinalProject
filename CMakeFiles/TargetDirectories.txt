@@ -1,3 +1,2 @@
-/home/csmajs/akanc003/final-project-ncha007-jzhan591-akanc003-jwang705/CMakeFiles/rebuild_cache.dir
-/home/csmajs/akanc003/final-project-ncha007-jzhan591-akanc003-jwang705/CMakeFiles/game.dir
-/home/csmajs/akanc003/final-project-ncha007-jzhan591-akanc003-jwang705/CMakeFiles/edit_cache.dir
+/home/csmajs/jzhan591/final-project-ncha007-jzhan591-akanc003-jwang705/CMakeFiles/rebuild_cache.dir
+/home/csmajs/jzhan591/final-project-ncha007-jzhan591-akanc003-jwang705/CMakeFiles/edit_cache.dir

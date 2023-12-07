@@ -21,11 +21,11 @@ class Character {
     public:
         //Constructor and Deconstructor
         Character();    //For new game
-        Character(string currClass, string weapon, string armor, int money, int lvl, int exp, int maxHealth, int currentHealth, int newBaseDamaage, int newTotalDamage);    //For old game
+        Character(string currClass, string weapon, string armor, int money, int lvl, int exp, int maxHealth, int currentHealth);    //For old game
         ~Character();
 
         //Setter functions
-        void setClass(string, Character);
+        void setClass(string);
         void setWeapon(string);
         void setArmor(string);
         void setMoney(int);

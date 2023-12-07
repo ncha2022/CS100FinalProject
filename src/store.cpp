@@ -1,5 +1,5 @@
-#include "../header/store.hpp"
-#include "../header/Inventory.h"
+ #include "../include/store.hpp"
+#include "../include/Inventory.h"
 #include "../header/Character.h"
 #include <iostream>
 #include <vector>
@@ -76,13 +76,13 @@ void Store :: displayStoreContents ( )
     }
 }
 
-void Store :: displayItemInfo ( string userItem )
+void Store :: displayItemInfo ( string userItemInfo )
 {
     int userItemIndex = 1000 ;
 
     for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        if ( (storeVector[i])[0] == userItem )
+        if ( (storeVector[i])[0] == userItemInfo )
         {
             cout << (storeVector[i])[0] << endl ;
             cout << "\tdescription: " << (storeVector[i])[1] << endl ;
@@ -149,7 +149,7 @@ void Store :: purchaseItem ( string userItem )
 
     for (auto it = items.begin(); it != items.end(); ) {
         if (it->name == userItemName) {
-            items.addItem(*it);
+            items.addItem(it);
         } else {
             ++it;
         }
