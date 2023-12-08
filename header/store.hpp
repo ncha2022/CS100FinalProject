@@ -9,15 +9,16 @@ using namespace std;
 class Store
 {
     private:
-    
+        Inventory& inventory;
         // vector holding vectors holdiing items and their info in the store
         vector <vector <string>> storeVector ; 
         Inventory items;
         
     public:
 
-        // default contructor 
-        Store () ; 
+        // default contructor
+
+        Store(Inventory& inv);
 
         // display items in store 
         void displayStoreContents() ; 
