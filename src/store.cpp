@@ -150,7 +150,7 @@ void Store :: purchaseItem ( string userItem )
     string userItemName = storeVector[userItemIndex][0] ;
 
     for (auto it = items.begin(); it != items.end(); ) {
-        if (it->name == userItemName) {
+        if (*it == userItemName) {
             items.addItem(*it);
         } else {
             ++it;
