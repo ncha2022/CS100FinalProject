@@ -59,8 +59,8 @@ void Character::setClass(string newClass, Character currPlayer) {
         }else if(newClass == "Glass Cannon"){
             currClass = newClass;
             armor = "";
-            maxHealth = 50;
-            currentHealth = 50;
+            maxHealth = 500;
+            currentHealth = 500;
             baseDamage = 80;
             weapon = "Stone Sword";
             totalDamage = 110;
