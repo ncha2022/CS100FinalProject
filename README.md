@@ -132,7 +132,13 @@
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > <"https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/4921e073-9dd1-441c-8a40-21cd2d2aea22">
+ > <img width="405" alt="image1" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/3585cea9-81c0-48c3-950d-bcc84dadf726">
+ > <img width="399" alt="image2" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/80571a66-b3a4-4ffe-848b-d7fb3c7e67d6">
+ > <img width="445" alt="image3" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/02210b84-5a7b-4a65-a797-a9b2370c658d">
+ > <img width="462" alt="image4" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/4ff9ebd1-9338-4eec-9cb9-e61c853a0eb6">
+ > <img width="643" alt="image5" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/2b450d59-2702-4457-bbbd-b35791ed378a">
+ > <img width="646" alt="image6" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/df6448fc-ff5d-4fdd-9f9b-854420c9f440">
+
 
  ## Installation/Usage
  > Download the repository and run game executable
