@@ -136,5 +136,5 @@
  ## Installation/Usage
  > Download the repository and run game executable
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > The project was tested through unit tests and gameplay runs, testing and different options that are available in gameplay.
  
