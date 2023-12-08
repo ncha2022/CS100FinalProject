@@ -132,7 +132,7 @@
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > <img width="405" alt="Screen Shot 2023-12-08 at 4 59 54 AM" src="https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/4921e073-9dd1-441c-8a40-21cd2d2aea22">
+ > <"https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/146978867/4921e073-9dd1-441c-8a40-21cd2d2aea22">
 
  ## Installation/Usage
  > Download the repository and run game executable
