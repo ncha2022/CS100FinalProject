@@ -6,27 +6,23 @@
 #include <string>
 #include "Character.h"
 
-class Item {
-    public:
-        std::string name;
-        Item(std::string name);
-};
+using namespace std;
 
 class Inventory {
     private:
-        std::vector<Item> items;
+        vector<string> items;
         Character player;
     public:
-        void addItem(const Item& item);
-        void dropItem(const std::string& itemName);
+        void addItem(const string&);
+        void dropItem(const string&);
         void viewInventory() const;
         void equipWeapon(string);
         void unequipWeapon();
         void equipArmor(string);
         void unequipArmor();
         void useConsumable(string);
-        vector<Item>::iterator begin() { return items.begin(); }
-        vector<Item>::iterator end() { return items.end(); }
+        vector<string>::iterator begin() { return items.begin(); }
+        vector<string>::iterator end() { return items.end(); }
 
 };
 
