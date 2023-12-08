@@ -5,11 +5,11 @@
 
 
 class Gamble{
-public:
+private:
    int dice(int num); 
+
+public:
    void gamble(Character &player);
-
-
 };
 
 #endif
