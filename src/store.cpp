@@ -7,63 +7,49 @@
 #include <limits>
 using namespace std ;
 
-Store :: Store ()
-{
-    // initialize creation of store array
-    // store in a vector of vectors
-    // i.e vector[0][0] -> first item's name
-    // i.e vector [0][1] -> first item's description
+Store::Store(Inventory& inv) : inventory(inv) {
+            vector<string>itemOne = { "Leather Armor", "increases max health by 10 hp", "1" } ;
+            storeVector.push_back(itemOne) ;
 
-    // creates vector for entire store
+            vector<string>itemTwo = { "Chainmail Armor", "increases max health by 30 hp", "1" } ;
+            storeVector.push_back(itemTwo) ;
 
-    // create separate vector for each item
-    // 0 = name
-    // 1 = description
-    // 2 = quantity
+            vector<string>itemThree = { "Iron Armor", "increases max health by 60 hp", "1" } ;
+            storeVector.push_back(itemThree) ;
 
-    vector<string>itemOne = { "Leather Armor", "increases max health by 10 hp", "1" } ;
-    storeVector.push_back(itemOne) ;
+            vector <string>itemFour = { "Gold Armor", "increases max health by 70 hp", "1" } ;
+            storeVector.push_back(itemFour) ;
 
-    vector<string>itemTwo = { "Chainmail Armor", "increases max health by 30 hp", "1" } ;
-    storeVector.push_back(itemTwo) ;
+            vector <string>itemFive = { "Diamond Armor", "increases max health by 120 hp", "1" } ;
+            storeVector.push_back(itemFive) ;
 
-    vector<string>itemThree = { "Iron Armor", "increases max health by 60 hp", "1" } ;
-    storeVector.push_back(itemThree) ;
+            vector <string>itemSix = { "Wood Sword", "increases attack by 10 points", "1" } ;
+            storeVector.push_back(itemSix) ;
 
-    vector <string>itemFour = { "Gold Armor", "increases max health by 70 hp", "1" } ;
-    storeVector.push_back(itemFour) ;
+            vector <string>itemSeven = { "Stone Sword", "increases attack by 30 points", "1" } ;
+            storeVector.push_back(itemSeven) ;
 
-    vector <string>itemFive = { "Diamond Armor", "increases max health by 120 hp", "1" } ;
-    storeVector.push_back(itemFive) ;
+            vector <string>itemEight = { "Iron Sword", "increases attack by 60 points", "1" } ;
+            storeVector.push_back(itemEight) ;
 
-    vector <string>itemSix = { "Wood Sword", "increases attack by 10 points", "1" } ;
-    storeVector.push_back(itemSix) ;
+            vector <string>itemNine = { "Gold Sword", "increases attack by 70 points", "1" } ;
+            storeVector.push_back(itemNine) ;
 
-    vector <string>itemSeven = { "Stone Sword", "increases attack by 30 points", "1" } ;
-    storeVector.push_back(itemSeven) ;
+            vector <string>itemTen = { "Diamond Sword", "increases attack by 100 points", "1" } ;
+            storeVector.push_back(itemTen) ;
 
-    vector <string>itemEight = { "Iron Sword", "increases attack by 60 points", "1" } ;
-    storeVector.push_back(itemEight) ;
+            vector <string>itemEleven = { "Gun", "increases attack by 100000 points", "1" } ;
+            storeVector.push_back(itemEleven) ;
 
-    vector <string>itemNine = { "Gold Sword", "increases attack by 70 points", "1" } ;
-    storeVector.push_back(itemNine) ;
+            vector <string>itemTwelve = { "Small Health Potion", "increases current health by 40 hp", "8" } ;
+            storeVector.push_back(itemTwelve) ;
 
-    vector <string>itemTen = { "Diamond Sword", "increases attack by 100 points", "1" } ;
-    storeVector.push_back(itemTen) ;
+            vector <string>itemThirteen = { "Medium Health Potion", "increases current health by 70 hp", "8" } ;
+            storeVector.push_back(itemThirteen) ;
 
-    vector <string>itemEleven = { "Gun", "increases attack by 100000 points", "1" } ;
-    storeVector.push_back(itemEleven) ;
-
-    vector <string>itemTwelve = { "Small Health Potion", "increases current health by 40 hp", "8" } ;
-    storeVector.push_back(itemTwelve) ;
-
-    vector <string>itemThirteen = { "Medium Health Potion", "increases current health by 70 hp", "8" } ;
-    storeVector.push_back(itemThirteen) ;
-
-    vector <string>itemFourteen = { "Large Health Potion", "increases current health by 100 hp", "8" } ;
-    storeVector.push_back(itemFourteen) ;
-
-}
+            vector <string>itemFourteen = { "Large Health Potion", "increases current health by 100 hp", "8" } ;
+            storeVector.push_back(itemFourteen) ;
+        }
 
 void Store :: displayStoreContents ( )
 {
@@ -110,57 +96,44 @@ void Store::displayItemInfo(string& userItem)
 }
 
 
-void Store :: purchaseItem ( string userItem )
-{
-    // useritem is removed from vector if quantity = 1
-    // quantity decreased if quantity is > 1
-
-    int userItemIndex = 1000 ;
-    for ( int i = 0 ; i < storeVector.size() ; i ++ )
-    {
-        if ( (storeVector[i])[0] == userItem )
-        {
-            userItemIndex = i ;
-            return ;
+void Store::purchaseItem(string userItem) {
+    int userItemIndex = -1; // Initialize to an invalid value
+    for (int i = 0; i < storeVector.size(); i++) {
+        if (storeVector[i][0] == userItem) {
+            userItemIndex = i;
+            break; // Break the loop once the item is found
         }
     }
 
-    if ( userItemIndex == 1000 )
-    {
-        cout << "Invalid item entered" ;
-        storeMenu() ;
-        return ;
+    if (userItemIndex == -1) {
+        cout << "Invalid item entered" << endl;
+        storeMenu();
+        return;
     }
 
-    if ( (storeVector[userItemIndex])[2] == "0" )
-    {
-        cout << "Item out of stock; quantity = 0" << endl;
-        storeMenu() ;
-        return ;
+    if (storeVector[userItemIndex][2] == "0") {
+        cout << "Item out of stock." << endl;
+        storeMenu();
+        return;
     }
 
-    // quantity adjustment
-
-    if ( (storeVector[userItemIndex])[2] == "1" )
-    {
-        (storeVector[userItemIndex])[2] = "0" ; 
-    }
-    // ADD TO INVENTORY
-
-    string userItemName = storeVector[userItemIndex][0] ;
-
-    for (auto it = items.begin(); it != items.end(); ) {
-        if (*it == userItemName) {
-            items.addItem(*it);
-        } else {
-            ++it;
-        }
+    // Decrease quantity if more than one, or set to "0" if only one left
+    if (storeVector[userItemIndex][2] != "1") {
+        int quantity = stoi(storeVector[userItemIndex][2]) - 1;
+        storeVector[userItemIndex][2] = to_string(quantity);
+    } else {
+        storeVector[userItemIndex][2] = "0"; 
     }
 
-    storeMenu() ; 
+    // Add item to the inventory
+    string userItemName = storeVector[userItemIndex][0];
+    inventory.addItem(userItemName);
 
-    return ;
+    cout << "Purchased: " << userItemName << endl;
+
+    storeMenu(); 
 }
+
 
 void Store :: displayItemQuantity ( string userItem )
 {
