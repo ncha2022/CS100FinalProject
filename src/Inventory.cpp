@@ -134,3 +134,7 @@ void Inventory::useConsumable(string consumable){
         cout << "Cannot consume that item." << endl;
     }
 }
+
+string Inventory::printBeginning(){
+    return items.front();
+}

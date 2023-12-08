@@ -11,8 +11,8 @@ using namespace std;
 class Inventory {
     private:
         vector<string> items;
-        Character player;
     public:
+        Character player;
         void addItem(const string&);
         void dropItem(const string&);
         void viewInventory() const;
@@ -21,6 +21,7 @@ class Inventory {
         void equipArmor(string);
         void unequipArmor();
         void useConsumable(string);
+        string printBeginning();
         vector<string>::iterator begin() { return items.begin(); }
         vector<string>::iterator end() { return items.end(); }
 
