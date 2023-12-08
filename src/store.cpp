@@ -103,8 +103,10 @@ void Store::displayItemInfo(string& userItem)
 
     if ( !itemFound )
     {
-        throw invalid_argument("Invalid item entered");
+        cout << "Invalid item entered" ;
     }
+
+    storeMenu() ; 
 }
 
 
@@ -125,7 +127,7 @@ void Store :: purchaseItem ( string userItem )
 
     if ( userItemIndex == 1000 )
     {
-        throw invalid_argument("Invalid item entered") ;
+        cout << "Invalid item entered" ;
         storeMenu() ;
         return ;
     }
@@ -139,16 +141,10 @@ void Store :: purchaseItem ( string userItem )
 
     // quantity adjustment
 
-    for ( int i = 1 ; i < storeVector.size() ; i ++ )
+    if ( (storeVector[userItemIndex])[2] == "1" )
     {
-        if ( i == stoi (storeVector[userItemIndex][2]) )
-        {
-            string newQuantity = to_string( i - 1 ) ;
-            storeVector[userItemIndex][2] = newQuantity ;
-        }
+        (storeVector[userItemIndex])[2] = "0" ; 
     }
-
-
     // ADD TO INVENTORY
 
     string userItemName = storeVector[userItemIndex][0] ;
@@ -160,6 +156,8 @@ void Store :: purchaseItem ( string userItem )
             ++it;
         }
     }
+
+    storeMenu() ; 
 
     return ;
 }
@@ -180,42 +178,13 @@ void Store :: displayItemQuantity ( string userItem )
 
     if ( userItemIndex == 1000 )
     {
-        throw invalid_argument("Invalid item entered") ;
-        storeMenu() ;
+        cout << "Invalid item entered" ;
     }
 
     storeMenu() ;
 
     return ;
 }
-
-// void Store :: displayItemDescription ( string userItem )
-// {
-//     string element = (storeVector[0])[0];
-//     cout << element << endl;
-//     // // displays description of item name entered by user
-//     // int userItemIndex = 1000 ;
-    
-//     // for (int i = 0 ; i < storeVector.size() ; i ++ )
-//     // {
-//     //     if ( (storeVector[i])[0] == userItem )
-//     //     {
-//     //         userItemIndex = i ;
-//     //         break ;
-//     //     }
-//     // }
-
-//     // if ( userItemIndex == 1000 )
-//     // {
-//     //     throw invalid_argument("Invalid item entered") ;
-//     //     return ;
-//     // }
-
-//     // cout << "Quantity: " << (storeVector[userItemIndex])[2] << endl ;
-
-//     // storeMenu() ;
-
-// }
 
 void Store :: storeMenu ()
 {
