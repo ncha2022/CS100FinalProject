@@ -136,5 +136,5 @@
  ## Installation/Usage
  > Download the repository and run game executable
  ## Testing
- > The project was tested through unit tests and gameplay runs, testing and different options that are available in gameplay.
+ > The project was tested through unit tests and gameplay runs, testing the different options that are available in gameplay.
  
