@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Game::Game() : player(), inventory(), store(), currentRoom(0), gameOver(false) {
+Game::Game() : player(), inventory(), store(inventory), currentRoom(0), gameOver(false) {
     player.setMoney(50); // starting money
     player.setLvl(1);
     player.setExp(0);
