@@ -162,32 +162,8 @@ void Game::openInventory() {
 void Game::enterStore() {
     bool storeOpen = true;
     while (storeOpen) {
-        cout << "\nStore Menu:" << endl;
-        cout << "1. View Items" << endl;
-        cout << "2. Buy Item" << endl;
-        cout << "3. Return to Main Menu" << endl;
-
-        int choice;
-        cin >> choice;
-
-        switch (choice) {
-            case 1:
-                store.displayStoreContents();
-                break;
-            case 2: {
-                cout << "Enter the name of the item to buy: ";
-                string item;
-                cin >> item;
-                store.purchaseItem(item);
-                break;
-            }
-            case 3:
-                storeOpen = false;
-                break;
-            default:
-                cout << "Invalid choice, try again." << endl;
-        }
-    }
+        store.storeMenu() ; 
+      }
 }
 
 void Game::fightEnemy(Character &enemy, bool isBossBattle) {
