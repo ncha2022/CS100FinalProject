@@ -14,7 +14,7 @@ int Gamble::dice(int num) {
     return roll;
 }
 
-void Gamble::gamble(Character player) { 
+void Gamble::gamble(Character &player) { 
     char input = 'x';
 
     while (input != 'y' && input != 'n') {
