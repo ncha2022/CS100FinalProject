@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 using namespace std ;
 
 Store :: Store ()
@@ -66,41 +67,46 @@ Store :: Store ()
 
 void Store :: displayStoreContents ( )
 {
+    cout << "< Available Items >" << endl ;
     for ( int i = 0 ; i < storeVector.size() ; i ++ )
     {
-        cout << "< Available Items >" << endl ;
         cout << (storeVector[i])[0] << endl ;
         // cout << "\tdescription: " << (storeVector[i])[1] << endl ;
         // cout << "\tquantity: " << (storeVector [i])[2] << endl ;
         // cout << endl ;
     }
+
+    cout << endl ; 
 }
 
-void Store :: displayItemInfo ( string userItem )
+void Store::displayItemInfo(string& userItem)
 {
-    int userItemIndex = 1000 ;
+    bool itemFound = false;
 
-    for ( int i = 0 ; i < storeVector.size() ; i ++ )
+    cout << endl << "User Input: " << userItem << endl;
+
+    for (int i = 0; i < storeVector.size(); i++)
     {
-        if ( (storeVector[i])[0] == userItem )
+        if (storeVector[i][0] == userItem)
         {
-            cout << (storeVector[i])[0] << endl ;
-            cout << "\tdescription: " << (storeVector[i])[1] << endl ;
-            cout << "\tquantity: " << (storeVector [i])[2] << endl ;
-            cout << endl ;
-            userItemIndex = i ;
+            cout << "Item found!" << endl;
+            cout << endl;
+            cout << storeVector[i][0] << endl;
+            cout << "\tdescription: " << storeVector[i][1] << endl;
+            cout << "\tquantity: " << storeVector[i][2] << endl;
+            cout << endl;
+            itemFound = true ; 
+            break ; 
         }
     }
+    // throw invalid_argument("Invalid item entered");
 
-    if ( userItemIndex == 1000 )
+    if ( !itemFound )
     {
-        throw invalid_argument("Invalid item entered") ;
-        return ;
+        throw invalid_argument("Invalid item entered");
     }
-
-    storeMenu() ;
-
 }
+
 
 void Store :: purchaseItem ( string userItem )
 {
@@ -126,7 +132,7 @@ void Store :: purchaseItem ( string userItem )
 
     if ( (storeVector[userItemIndex])[2] == "0" )
     {
-        throw out_of_range( "Item out of stock; quantity = 0" ) ;
+        cout << "Item out of stock; quantity = 0" << endl;
         storeMenu() ;
         return ;
     }
@@ -183,70 +189,83 @@ void Store :: displayItemQuantity ( string userItem )
     return ;
 }
 
-void Store :: displayItemDescription ( string userItem )
-{
-    // displays description of item name entered by user
-    int userItemIndex = 1000 ;
-    for (int i = 0 ; i < storeVector.size() ; i ++ )
-    {
-        if ( (storeVector[i])[0] == userItem )
-        {
-            userItemIndex = i ;
-            return ;
-        }
-    }
+// void Store :: displayItemDescription ( string userItem )
+// {
+//     string element = (storeVector[0])[0];
+//     cout << element << endl;
+//     // // displays description of item name entered by user
+//     // int userItemIndex = 1000 ;
+    
+//     // for (int i = 0 ; i < storeVector.size() ; i ++ )
+//     // {
+//     //     if ( (storeVector[i])[0] == userItem )
+//     //     {
+//     //         userItemIndex = i ;
+//     //         break ;
+//     //     }
+//     // }
 
-    if ( userItemIndex == 1000 )
-    {
-        throw invalid_argument("Invalid item entered") ;
-        return ;
-    }
+//     // if ( userItemIndex == 1000 )
+//     // {
+//     //     throw invalid_argument("Invalid item entered") ;
+//     //     return ;
+//     // }
 
-    cout << "Quantity: " << (storeVector[userItemIndex])[2] << endl ;
+//     // cout << "Quantity: " << (storeVector[userItemIndex])[2] << endl ;
 
-    storeMenu() ;
+//     // storeMenu() ;
 
-}
+// }
 
 void Store :: storeMenu ()
 {
     // cout a menu for users to choose their next step from
     // numbered options
-    cout << "< Welcome to the Store >" << endl ;
-    cout << "What would you like to do?" << endl ;
-    cout << endl ;
-    printMenu() ;
-
-    int userChoice ;
-    cin >> userChoice ;
-
-    while ( userChoice != 4 )
+    bool exitStore = false;
+    while(!exitStore)
     {
-        if ( userChoice == 1 )
-        {
-            displayStoreContents() ;
-        }
-        else if ( userChoice == 2 )
-        {
-            string userItemInfo ;
-            cout << "Enter item name" << endl ;
-            getline ( cin, userItemInfo ) ;
-
-            displayItemInfo( userItemInfo ) ;
-        }
-        else if ( userChoice == 3 )
-        {
-            string userPurchaseItem ;
-            cout << "Enter item to be purchased" << endl ;
-            getline ( cin, userPurchaseItem ) ;
-            purchaseItem( userPurchaseItem ) ;
-        }
-
+        cout << "< Welcome to the Store >" << endl ;
+        cout << "What would you like to do?" << endl ;
+        cout << endl ;
         printMenu() ;
-        cin >> userChoice ;
-    }
 
-    return ;
+        string userItemInfo ; 
+        string userPurchaseItem ; 
+        int userChoice ;
+        cin >> userChoice ;
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n') ; 
+
+        switch ( userChoice )
+        {
+            case 1 :
+
+                displayStoreContents() ;
+                break ; 
+
+            case 2:
+                
+                cout << "Enter item name" << endl ;
+                getline ( cin, userItemInfo ) ; 
+                displayItemInfo( userItemInfo ) ;
+                break ; 
+
+            case 3:
+                
+                cout << "Enter item to be purchased" << endl ;
+                getline ( cin, userPurchaseItem ) ;
+                purchaseItem( userPurchaseItem ) ;
+                break ; 
+
+            case 4:
+                exitStore = true;
+                break ; 
+
+            default:
+
+                cout << "invalid input" << endl ;
+        }
+    }
 }
 
 void Store :: printMenu ()

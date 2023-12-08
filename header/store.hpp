@@ -23,13 +23,13 @@ class Store
         void displayStoreContents() ; 
 
         // display details of an item
-        void displayItemInfo( string userItem ) ; 
+        void displayItemInfo( string& userItem ) ; 
 
         // display quantity of user requested item; not sure if should count directly or display quantity 
         void displayItemQuantity( string userItem ) ;
 
-        // display description for each user requested item 
-        void displayItemDescription( string userItem ) ; 
+        // // display description for each user requested item 
+        // void displayItemDescription( string userItem ) ; 
 
         // purchase item (removes one from store array)
         void purchaseItem( string userItem ) ; 
