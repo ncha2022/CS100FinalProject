@@ -19,7 +19,7 @@
 >     -   Tool: VS code
  > * What will be the input/output of your project?
 >     -  Keyboard inputs
->     -  Mouse inputs
+>     -  Text outputs in the terminal
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted.
 >     - Engaging story
@@ -89,6 +89,7 @@
 > ## Gambling System
 > - **Commands:**
 > - `Bet`: Place a bet in a game of chance, ex, `Dice Roll [Bet]`.
+> - `Choose Game of Chance`: Given options of 2x, 5x, and 10x your in-game money.
 
 > ## Quit Confirmation
 > - **Commands:**
