@@ -160,10 +160,7 @@ void Game::openInventory() {
 
 
 void Game::enterStore() {
-    bool storeOpen = true;
-    while (storeOpen) {
-        store.storeMenu() ; 
-      }
+    store.storeMenu();
 }
 
 void Game::fightEnemy(Character &enemy, bool isBossBattle) {

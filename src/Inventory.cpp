@@ -122,14 +122,26 @@ void Inventory::unequipArmor(){
 
 void Inventory::useConsumable(string consumable){
     if(consumable == "Small Health Potion"){
-        player.setCurrentHealth(player.getCurrentHealth() + 40);
-        cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
+        if((player.getCurrentHealth() + 40) < player.getMaxHealth()){
+            player.setCurrentHealth(player.getCurrentHealth() + 40);
+            cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
+        }else{
+            player.setCurrentHealth(player.getMaxHealth());
+        }
     }else if(consumable == "Medium Health Potion"){
-        player.setCurrentHealth(player.getCurrentHealth() + 70);
-        cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
+        if((player.getCurrentHealth() + 70) < player.getMaxHealth()){
+            player.setCurrentHealth(player.getCurrentHealth() + 70);
+            cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
+        }else{
+            player.setCurrentHealth(player.getMaxHealth());
+        }
     }else if(consumable == "Large Health Potion"){
-        player.setCurrentHealth(player.getCurrentHealth() + 100);
-        cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
+        if((player.getCurrentHealth() + 100) < player.getMaxHealth()){
+            player.setCurrentHealth(player.getCurrentHealth() + 100);
+            cout << "You now have " << player.getCurrentHealth() << " hp." << endl;
+        }else{
+            player.setCurrentHealth(player.getMaxHealth());
+        }
     }else{
         cout << "Cannot consume that item." << endl;
     }
