@@ -7,7 +7,7 @@
 class Gamble{
 public:
    int dice(int num); 
-   void gamble(Character player);
+   void gamble(Character &player);
 
 
 };
