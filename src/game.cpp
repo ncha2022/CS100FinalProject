@@ -1,4 +1,5 @@
 #include "../header/game.h"
+#include "../header/gamble.h"
 #include <iostream>
 #include <limits>
 
@@ -360,7 +361,8 @@ int main() {
                 game.moveToNextRoom();
                 break;
             case 4:
-                // gamble(game.getPlayer()); 
+                Gamble casino;
+                casino.gamble(game.getPlayer()); 
                 break;
             case 5:
                 game.displayPlayerStats();
