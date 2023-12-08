@@ -19,7 +19,7 @@
 >     -   Tool: VS code
  > * What will be the input/output of your project?
 >     -  Keyboard inputs
->     -  Mouse inputs
+>     -  Text outputs in the terminal
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted.
 >     - Engaging story
@@ -89,6 +89,7 @@
 > ## Gambling System
 > - **Commands:**
 > - `Bet`: Place a bet in a game of chance, ex, `Dice Roll [Bet]`.
+> - `Choose Game of Chance`: Given options of 2x, 5x, and 10x your in-game money.
 
 > ## Quit Confirmation
 > - **Commands:**
@@ -96,7 +97,7 @@
 
 
 ## Class Diagram
- > ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/121526792/d886cfb9-65b0-4988-ad53-5259968500ca)
+ > ![image](https://github.com/cs100/final-project-ncha007-jzhan591-akanc003-jwang705/assets/102260019/30ae96c6-3642-4514-b6cc-16bab4c6d797)
 >
 > The program starts out in the Main Menu where the player can have the option to load a new game, load a previously saved game, or quit the game/program altogether. The diagram also includes the Gameplay class, which includes direction and CurrCharacter and functions inventory, lookAround, move, and interact. These functions allow the player to control their character's movements during the gameplay. The function Menu takes the player to main menu, and createNewCharacter creates a new character in the game. The Character class includes all of the character's stats and accessible items such as strength, dexterity, weapon, and money. The character's class can be chosen through the ChooseClass function, and their stats through the ChooseStats function, which includes all their stats. These features are only accessible through the Character class. In the inventory class, players can access their character's inventory and perform actions such as equipping an item, dropping an item, or just viewing their inventory through their respective functions. The character's inventory is sored through an array with each item being string. Through the Gambling class, the character's movements are determined through a dice roll. The random number produced by this chooses their path. In the Store class, the player can purchase things for their character through the store, which is an array storing the name of each item in string. Players can choose to display the contents of the store, and display the  quantity or description of an item they are interested in in the store through their respective functions. Through the private removeFromStore and addBackToStore functions the program is then able to update the contents of the store if the player chooses to purchase or return an item. 
 
@@ -133,7 +134,7 @@
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ > Download the repository and run game executable
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > The project was tested through unit tests and gameplay runs, testing the different options that are available in gameplay.
  
