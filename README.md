@@ -141,7 +141,7 @@
 
 
  ## Installation/Usage
- > Download the repository and run game executable
+ > To run the game, you need to download the necessary files within this repository. Once downloaded, open the terminal and navigate to the directory in which you have downloaded these files. Run the commands "cmake .", "make", then "./game". This will run the application/executable "game". Once you exit out of the application, you can always run the game again by running the command "./game" in your terminal.
  ## Testing
  > The project was tested through unit tests and gameplay runs, testing the different options that are available in gameplay.
  
